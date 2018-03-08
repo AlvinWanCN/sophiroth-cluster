@@ -1,0 +1,26 @@
+$ORIGIN .
+$TTL 86400  ; 1 day
+shenmin.com     IN SOA  shenmin.com. root.shenmin.com.zone. (
+                2          ; serial
+                86400      ; refresh (1 day)
+                3600       ; retry (1 hour)
+                604800     ; expire (1 week)
+                10800      ; minimum (3 hours)
+                )
+            NS  shenmin.com.
+            A   47.75.0.56
+$ORIGIN shenmin.com.
+bi          A   192.168.1.218
+cms         A   192.168.1.219
+i           A   192.168.1.219
+jenkins         A   192.168.1.205
+nagios          A   192.168.1.208
+natasha         A   47.75.0.56
+sd          A   192.168.1.211
+svn         A   192.168.1.207
+test1           A   192.168.1.211
+test2           A   192.168.1.212
+test3           A   192.168.1.213
+test4           A   192.168.1.214
+tuleap          A   192.168.1.203
+zabbix          A   192.168.1.210

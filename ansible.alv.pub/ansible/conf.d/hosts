@@ -1,0 +1,20 @@
+[dbs] #group name
+db1  #hostname
+db2
+db3
+
+
+[i.alv.pub]
+db1
+db2
+db3
+zabbix
+ansible
+dc
+iscsi
+dhcp
+jenkins
+
+[cloud.alv.pub]
+natasha.alv.pub
+alv.pub:105
