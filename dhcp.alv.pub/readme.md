@@ -52,3 +52,8 @@ os.system('systemctl restart dhcpd')
 ```sybase
 # curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/dhcp.alv.pub/dhcpd.conf > /etc/dhcp/dhcpd.conf
 ```
+- other configuration
+```bash
+# chmod o+rx /etc/dhcp
+# chown alvin /etc/dhcp/dhcpd.conf   #let alvin can scp dhcpd.conf from ansble to here.
+```

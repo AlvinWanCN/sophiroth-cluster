@@ -3,9 +3,11 @@
 
 
 
+
+
 - [x] item Name:
  
-update_dc.alv.pub_ldapUserData_alvin_scripts_welcome.py
+01-update_ansible.alv.pub_ansible_hosts
  
 - [x] Max # of builds to keep
 
@@ -14,12 +16,12 @@ update_dc.alv.pub_ldapUserData_alvin_scripts_welcome.py
 - [x] Repository URL
 
  
-https://github.com/AlvinWanCN/scripts.git
+https://github.com/AlvinWanCN/sophiroth-cluster.git
  
 
 - [x]  Polling ignores commits in certain paths.Included Regions
 
-python/sophiroth.welcome.py
+ansible.alv.pub/ansible/conf.d/hosts
 
 
 - [x] Poll SCM
@@ -29,9 +31,9 @@ python/sophiroth.welcome.py
 
 - [x] SSH site: 
 
-alvin@ansible.alv.pub:22
+alvin@jenkins.alv.pub:22
 
 
 - [x] Command
 
-ssh dc 'curl -fsSL https://github.com/AlvinWanCN/scripts/raw/master/python/sophiroth.welcome.py > /ldapUserData/alvin/scripts/welcome.py'
+python /opt/jenkins.sophiroth.py  01

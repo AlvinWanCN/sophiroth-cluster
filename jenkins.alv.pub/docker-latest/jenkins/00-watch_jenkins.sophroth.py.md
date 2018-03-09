@@ -7,7 +7,7 @@
 
 - [x] item Name:
  
-update_ansible.alv.pub_ansible_hosts
+00-watch_jenkins.sophroth.py
  
 - [x] Max # of builds to keep
 
@@ -16,12 +16,12 @@ update_ansible.alv.pub_ansible_hosts
 - [x] Repository URL
 
  
-https://github.com/AlvinWanCN/TechnologyCenter.git
+https://github.com/AlvinWanCN/sophiroth-cluster.git
  
 
 - [x]  Polling ignores commits in certain paths.Included Regions
 
-sophiroth_cluster/ansible.alv.pub/ansible/conf.d/hosts
+jenkins.alv.pub/docker-latest/jenkins/scripts/jenkins.sophiroth.py
 
 
 - [x] Poll SCM
@@ -31,9 +31,9 @@ sophiroth_cluster/ansible.alv.pub/ansible/conf.d/hosts
 
 - [x] SSH site: 
 
-alvin@ansible.alv.pub:22
+alvin@jenkins.alv.pub:22
 
 
 - [x] Command
 
-python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/sophiroth_cluster/ansible.alv.pub/ansible/scripts/update.ansible.hosts.py)"
+cp /jenkins/workspace/00-watch_jenkins.sophroth.py/jenkins.alv.pub/docker-latest/jenkins/scripts/jenkins.sophiroth.py /opt/

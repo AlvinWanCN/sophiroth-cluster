@@ -3,7 +3,8 @@
 
 - [x] item Name:
  
- updateAndReload_.alv.pub_named
+ 04-updateAndReload_.alv.pub_named
+ 
 
 - [x] Max # of builds to keep
 
@@ -11,11 +12,12 @@
 
 - [x] Repository URL
  
- https://github.com/AlvinWanCN/TechnologyCenter.git
+https://github.com/AlvinWanCN/sophiroth-cluster.git
 
 - [x]  Polling ignores commits in certain paths.Included Regions
 
-sophiroth_cluster/alv.pub/named/alv.pub.zone
+alv.pub/named/conf.d/alv.pub.zone
+
 
 - [x] Poll SCM
 
@@ -23,8 +25,8 @@ sophiroth_cluster/alv.pub/named/alv.pub.zone
 
 - [x] SSH site: 
 
-alvin@ansible.alv.pub:22
+alvin@alv.pub:xxx
 
 - [x] Command
 
-sudo python -c "$(curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/alv.pub/named/scripts/update.named.alv.pub.py)"
+sudo python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/alv.pub/named/scripts/update.named.alv.pub.py)"
