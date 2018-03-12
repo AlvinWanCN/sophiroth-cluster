@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #coding:utf-8
 import os
-url='https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/alv.pub/named/conf.d/alv.pub.zone'
+url='https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/alv.pub/named/conf.d/alv.pub.zone'
 file='/var/named/alv.pub.zone '
 serviceName='named'
 os.system('curl -fsSL %s > %s'%(url,file))
