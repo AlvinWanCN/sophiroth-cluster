@@ -1,5 +1,47 @@
 <p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
 
+## cluster server information
+
+<html>
+<table>
+    <thead>
+        <th>Role</th>
+        <th>Hostname</th>
+        <th>IP</th>
+        <th>OS</th>
+        <th>User</th>
+        <th>Selinux</th>
+        <th>Firewalld</th>
+    </thead>
+    <tr>
+        <td>Server</td>
+        <td>db1.alv.pub</td>
+        <td>192.168.127.52</td>
+        <td>centos7.4</td>
+        <td>root</td>
+        <td>disabled</td>
+        <td>disabled</td>
+    </tr>
+    <tr>
+        <td>Server</td>
+        <td>db2.alv.pub</td>
+        <td>192.168.127.53</td>
+        <td>centos7.4</td>
+        <td>root</td>
+        <td>disabled</td>
+        <td>disabled</td>
+    </tr>
+    <tr>
+        <td>Server</td>
+        <td>db3.alv.pub</td>
+        <td>192.168.127.57</td>
+        <td>centos7.4</td>
+        <td>root</td>
+        <td>disabled</td>
+        <td>disabled</td>
+    </tr>
+</table>
+ </html>
 
 
 

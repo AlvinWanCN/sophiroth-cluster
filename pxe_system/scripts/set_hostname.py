@@ -12,6 +12,7 @@ hostDict['dc']=makeAlvHost('dc','54')
 hostDict['ansible']=makeAlvHost('ansible','55')
 hostDict['jenkins']=makeAlvHost('jenkins','56')
 hostDict['db3']=makeAlvHost('db3','57')
+hostDict['maxscale']=makeAlvHost('maxscale','58')
 
 ipstr=os.popen('ip a s ens32|grep global').read() #获取关于ip信息的字符串
 lastIPNumber=re.findall(r'\w\s(.*)\/',ipstr)[0].split('.')[-1]  #截取ip最后一位
