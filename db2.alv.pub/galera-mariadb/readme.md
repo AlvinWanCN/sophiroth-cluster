@@ -34,5 +34,5 @@ wsrep_cluster_name="galera_cluster"
 
 - Start up
 ```bash
-# /etc/init.d/mysql start --wsrep-new-cluster   #集群的第一个节点启动时需要加--wsrep-new-cluster 参数，其他节点接下来启动时不需要加。
+# /etc/init.d/mysql start   #集群的第一个节点启动时需要加--wsrep-new-cluster 参数，其他节点接下来启动时不需要加。
 ```
