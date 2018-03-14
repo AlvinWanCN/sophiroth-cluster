@@ -11,10 +11,20 @@
 
 ## 相关报错处理
 
-#### 问题1
+#### 问题1 启动时无法启动，报如下错
 
  failed to open gcomm backend connection: 131: invalid UUID:
 
 #### 解决方案：  
 
  mv /var/lib/mysql/gvwstate.dat /var/lib/mysql/gvwstate.dat.bak
+ 
+ 
+ #### 问题2 启动时无法启动，报如下错
+ 
+ [ERROR] WSREP: gcs/src/gcs_group.cpp:group_post_state_exchange():321: Reversing history: 2130 -> 2129, this member has applied 1 more events than the primary component.Data loss is possible. Aborting.
+ 
+ #### 解决方案：
+ 
+ /etc/init.d/mysql start --wsrep-new-cluster 
+ 

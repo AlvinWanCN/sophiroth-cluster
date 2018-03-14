@@ -3,7 +3,6 @@
 # Use it for options that only the server (but not clients) should see
 #
 # See the examples of server my.cnf files in /usr/share/mysql/
-#
 
 # this is read by the standalone daemon and embedded servers
 [server]
@@ -16,15 +15,6 @@ lower_case_table_names=1
 #
 # * Galera-related settings
 #
-[galera]
-# Mandatory settings
-#wsrep_provider=
-#wsrep_cluster_address=
-#binlog_format=row
-#default_storage_engine=InnoDB
-#innodb_autoinc_lock_mode=2
-#bind-address=0.0.0.0
-#
 # Optional setting
 #wsrep_slave_threads=1
 #innodb_flush_log_at_trx_commit=0
@@ -36,8 +26,8 @@ default_storage_engine=InnoDB
 innodb_autoinc_lock_mode=2
 bind-address=0.0.0.0
 wsrep_cluster_name="galera_cluster"
-wsrep_node_name=db1
-wsrep_node_address=192.168.127.52
+#wsrep_node_name=db1
+#wsrep_node_address=192.168.127.52
 # this is only for embedded server
 [embedded]
 
