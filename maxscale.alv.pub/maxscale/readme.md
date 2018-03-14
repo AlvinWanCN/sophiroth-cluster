@@ -33,5 +33,33 @@ BBF537B460B777BCA9A656DF5702E33C
 # curl -fsSL $confFileUrl > /etc/maxscale.conf
 ##这里需要手动将前面生成的加密密码替换掉配置文件里面的那个密码，由于加密方式不一样，所以每次同样的密码的密文也会不一样。
 # chown maxscale /var/lib/maxscale/ -R
+# systemctl start maxscale
+# systemctl enable maxscale
+[root@maxscale ~]# maxscale --version
+MaxScale 2.1.9
+
+[root@maxscale ~]# maxadmin list servers
+Servers.
+-------------------+-----------------+-------+-------------+--------------------
+Server             | Address         | Port  | Connections | Status              
+-------------------+-----------------+-------+-------------+--------------------
+server1            | 192.168.127.52  |  3306 |           0 | Slave, Synced, Running
+server2            | 192.168.127.53  |  3306 |           0 | Master, Synced, Running
+server3            | 192.168.127.57  |  3306 |           0 | Slave, Synced, Running
+-------------------+-----------------+-------+-------------+--------------------
+[root@maxscale ~]# maxadmin list monitors
+---------------------+---------------------
+Monitor              | Status
+---------------------+---------------------
+Galera Monitor       | Running
+---------------------+---------------------
+[root@maxscale ~]# maxadmin list services
+Services.
+--------------------------+-------------------+--------+----------------+-------------------
+Service Name              | Router Module     | #Users | Total Sessions | Backend databases
+--------------------------+-------------------+--------+----------------+-------------------
+Read-Write Service        | readwritesplit    |      1 |              1 | server1, server2, server3
+MaxAdmin Service          | cli               |      2 |              5 | 
+--------------------------+-------------------+--------+----------------+-------------------
 
 ```
