@@ -64,6 +64,9 @@ gpgcheck=0
 - Configure mariadb
 ```bash
 # vim /etc/my.cnf.d/server.cnf
+[mysqld]
+character_set_server=utf8
+lower_case_table_names=1
 [galera]
 wsrep_provider=/usr/lib64/galera/libgalera_smm.so
 wsrep_cluster_address="gcomm://192.168.127.52,192.168.127.53,192.168.127.57"

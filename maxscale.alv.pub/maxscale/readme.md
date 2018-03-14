@@ -2,7 +2,7 @@
 
 
 
-## Conference material
+## Reference material
  url: https://mariadb.com/kb/en/mariadb-enterprise/mariadb-maxscale-14/maxscale-readwrite-splitting-with-galera-cluster/
 url:http://blog.csdn.net/lyk_for_dba/article/details/78351124
 ## Install maxscale
@@ -29,6 +29,7 @@ BBF537B460B777BCA9A656DF5702E33C
 ## Configure maxscale
 
 ```bash
-# vim /etx/maxscale.cnf
-
+# confFileUrl='https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/maxscale.alv.pub/maxscale/conf.d/maxscale.conf'
+# curl -fsSL $confFileUrl > /etc/maxscale.conf
+# 
 ```
