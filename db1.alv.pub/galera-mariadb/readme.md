@@ -64,19 +64,8 @@ gpgcheck=0
 
 - Configure mariadb
 ```bash
-# vim /etc/my.cnf.d/server.cnf
-[mysqld]
-character_set_server=utf8
-lower_case_table_names=1
-
-[galera]
-wsrep_provider=/usr/lib64/galera/libgalera_smm.so
-wsrep_cluster_address="gcomm://192.168.127.52,192.168.127.53,192.168.127.57"
-binlog_format=row
-default_storage_engine=InnoDB
-innodb_autoinc_lock_mode=2
-bind-address=0.0.0.0
-wsrep_cluster_name="galera_cluster"
+# url='https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/db1.alv.pub/galera-mariadb/conf.d/server.cnf'
+# curl -fsSL $url > /etc/my.cnf.d/server.cnf
 ```
 
 - Start up
@@ -101,6 +90,9 @@ Query OK, 1 row affected (0.01 sec)
 MariaDB [(none)]> grant all privileges on sophiroth.* to 'alvin'@'%' identified by 'sophiroth';
 Query OK, 0 rows affected (0.01 sec)
 
+grant  all on maxscale_schema.* to maxscale@'%' identified by "sophiroth";
+grant select on mysql.* to maxscale@"%";
+grant show databases on *.* to maxscale@"%";
 ```
 
 - 用刚才创建的账号访问其他集群内的服务。
