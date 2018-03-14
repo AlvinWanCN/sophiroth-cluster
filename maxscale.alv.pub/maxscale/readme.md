@@ -29,7 +29,9 @@ BBF537B460B777BCA9A656DF5702E33C
 ## Configure maxscale
 
 ```bash
-# confFileUrl='https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/maxscale.alv.pub/maxscale/conf.d/maxscale.conf'
+# confFileUrl='https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/maxscale.alv.pub/maxscale/conf.d/maxscale.cnf'
 # curl -fsSL $confFileUrl > /etc/maxscale.conf
-# 
+##这里需要手动将前面生成的加密密码替换掉配置文件里面的那个密码，由于加密方式不一样，所以每次同样的密码的密文也会不一样。
+# chown maxscale /var/lib/maxscale/ -R
+
 ```
