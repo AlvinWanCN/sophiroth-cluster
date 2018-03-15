@@ -7,4 +7,4 @@
 
 点击administration, 然后点Media types
 
-<img src=images/1.jgp>
+<img src=images/1.jpg>
