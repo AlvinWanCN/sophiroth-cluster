@@ -46,3 +46,6 @@
 <img src=images/10.jpg></br>
 修改action里的内容</br>
 <img src=images/11.jpg></br>
+
+然后我们在被监控的服务器上关掉zabbix-agent之后，就会收到邮件告警了。</br>
+<img src=images/12.jpg></br>
