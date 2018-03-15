@@ -3,7 +3,7 @@
 ## Zabbix Alert Configuration
 
  
-#### Zabbix origin Email Alart
+#### Zabbix origin Email Alert
 
 点击administration, 然后点Media types
 
