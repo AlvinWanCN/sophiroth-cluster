@@ -119,3 +119,19 @@ net.tcp.listen[port]</br>
 0
 
 ```
+
+
+net.tcp.port[<ip>,port]</br>
+是否可以连接到指定的TCP端口0 – cannot connect 1 – can connect</br>
+   ip - IP地址(默认是 127.0.0.1)</br>
+   port - 端口</br>
+范例: net.tcp.port[,80] 检测web服务器端口是否运行中</br>
+```bash
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k 'net.tcp.port[,80]'
+0
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k 'net.tcp.port[,3306]'
+1
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k 'net.tcp.port[,22]'
+1
+
+```
