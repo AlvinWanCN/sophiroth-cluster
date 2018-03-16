@@ -69,7 +69,7 @@ LogSlowQueries=3000
 ### Configuration httpd service
 修改zabbix时区，在19行，将注销去掉，将时区改为本地时区，这里我们改成亚洲上海。
 ```bash
-[root@zabbix ~]# vim /etc/zabbix/zabbix_server.conf 
+[root@zabbix ~]# vim /etc/httpd/conf.d/zabbix.conf 
         php_value date.timezone Asia/Shanghai
 ```
 
