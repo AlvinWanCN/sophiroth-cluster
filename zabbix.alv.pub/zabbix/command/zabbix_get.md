@@ -135,3 +135,17 @@ net.tcp.port[<ip>,port]</br>
 1
 
 ```
+```bash
+
+net.tcp.service[service,<ip>,<port>]
+检测服务是否开启，并且端口可用0 – 服务挂了 1 – 服务运行中
+    service - 如下:ssh, ntp, ldap, smtp, ftp, http, pop, nntp,imap, tcp, https, telnet
+    ip - IP地址 (默认127.0.0.1)
+    port - 端口 (默认情况为标准端口号)
+示例key: net.tcp.service[ftp,,45]
+
+
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k net.tcp.service[ftp,,45]
+0
+
+```
