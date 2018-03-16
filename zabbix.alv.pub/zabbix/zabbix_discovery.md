@@ -8,4 +8,6 @@ Create discovery rule
 
 configure discovery 
 
-<img src=images/14.jpg>
+<img src=images/14.jpg> 
+
+<img src=images/15.jpg>
