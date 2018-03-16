@@ -1,6 +1,15 @@
 <p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
 
 
+
+
+### zabbix alv.pub zone auto installation and configuration script
+
+```bash
+python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/zabbix.alv.pub/zabbix/scripts/installZabbixAgent.py)"
+```
+
+
 ### zabbix agent installation
 
 在配置好了zabbix的yum 仓库后，直接一条命令yum安装就好了。
