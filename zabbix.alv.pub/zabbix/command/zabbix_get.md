@@ -168,3 +168,13 @@ vfs.fs.size[{#FSNAME},used]
 [root@zabbix ~]# zabbix_get -s db2.alv.pub -k  "vfs.fs.size[/opt,total]"  
 19862126592
 ```
+
+agent.ping
+
+检测被监控端是否存活(1:运行中 其他:未运行)-使用函数 nodata()检测客户端是否正在运行
+
+```bash
+[root@zabbix ~]# zabbix_get -s 192.168.127.52 -k agent.ping
+1
+
+```
