@@ -45,6 +45,7 @@ Query OK, 0 rows affected (0.01 sec)
 ### Configuration zabbix server 
 这里我们主要要注意数据库的配置是否正确
 ```bash
+# curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/zabbix.alv.pub/zabbix/conf.d/zabbix_server.conf > /etc/zabbix/zabbix_server.conf 
 [root@zabbix ~]# vim /etc/zabbix/zabbix_server.conf 
 [root@zabbix ~]# 
 [root@zabbix ~]# egrep -v "^$|^#" /etc/zabbix/zabbix_server.conf 
