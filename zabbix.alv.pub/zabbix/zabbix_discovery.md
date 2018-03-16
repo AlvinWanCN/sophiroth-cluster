@@ -3,4 +3,4 @@
 ## Zabbix Discovery Configuration
 
 Create discovery rule
-<img images/13.jpg>
+<img src=images/13.jpg>
