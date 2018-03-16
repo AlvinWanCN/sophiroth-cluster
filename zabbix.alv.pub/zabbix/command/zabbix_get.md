@@ -107,3 +107,15 @@ kernel.maxproc
 131072
 
 ```
+
+net.tcp.listen[port]</br>
+检测端口是否开启0 – （not listen） 1 –  in LISTEN stateport</br>
+示例: net.tcp.listen[80]</br>
+
+```bash
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k 'net.tcp.listen[22]'
+1
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k 'net.tcp.listen[232]'
+0
+
+```
