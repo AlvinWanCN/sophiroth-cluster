@@ -60,8 +60,14 @@ vm.memory.size[<mode>]
 
 内存大小字节或百分比
 ```bash
-[root@zabbix ~]# zabbix_get -s db2.alv.pub -k 'vm.memory.size'
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k vm.memory.size[free]
+840826880
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k vm.memory.size[used]
+3117232128
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k vm.memory.size[total]
 3958075392
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k vm.memory.size[available]
+3118415872
 
 ```
 
@@ -148,4 +154,17 @@ net.tcp.service[service,<ip>,<port>]
 [root@zabbix ~]# zabbix_get -s db2.alv.pub -k net.tcp.service[ftp,,45]
 0
 
+```
+
+
+
+vfs.fs.size[{#FSNAME},used]
+
+查看磁盘使用率
+```bash
+
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k  "vfs.fs.size[/opt,used]"  
+3297542144
+[root@zabbix ~]# zabbix_get -s db2.alv.pub -k  "vfs.fs.size[/opt,total]"  
+19862126592
 ```
