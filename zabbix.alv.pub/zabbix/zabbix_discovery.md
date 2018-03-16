@@ -5,3 +5,7 @@
 Create discovery rule 
 
 <img src=images/13.jpg>
+
+configure discovery 
+
+<img src=images/14.jpg>
