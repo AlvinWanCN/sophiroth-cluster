@@ -11,3 +11,11 @@ configure discovery
 <img src=images/14.jpg> 
 
 <img src=images/15.jpg>
+
+然后创建一个action，为自动发现的主机添加服务。
+
+configuration>>action>>Event source（选discover）>>create action
+
+<img src=images/16.jpg>
+
+<img src=images/17.jpg>
