@@ -2,5 +2,6 @@
 
 ## Zabbix Discovery Configuration
 
-Create discovery rule
+Create discovery rule 
+
 <img src=images/13.jpg>
