@@ -102,3 +102,4 @@ yum install zabbix-agent -y
 ```
 
 ### Configuration zabbix-agent.
+
