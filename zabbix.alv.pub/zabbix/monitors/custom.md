@@ -15,7 +15,7 @@
 ### Resources
 url: https://www.cnblogs.com/xiaolinstudy/p/7271861.html
 
-### 通过简单的配置自定义命令来监控一个进程是否存在
+### 1. 通过简单的配置自定义命令来监控一个进程是否存在
 
 
 这里我们首先将UnsafeUserParameters的设置为1，该值默认为0,0表示不适用，1表示开启自定义脚本。
@@ -47,3 +47,7 @@ UserParameter=proc.mysql,ps -ef|grep /usr/sbin/mysqld|grep -v grep|wc -l
 [root@zabbix ~]# zabbix_get -s db1 -k proc.mysql
 1
 ```
+#### 在web端图形化的方式添加我们的自定义监控。
+
+##### step1: 找到我们的目标主机
+<img src=../images/22.jpg>
