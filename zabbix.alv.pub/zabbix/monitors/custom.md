@@ -2,7 +2,7 @@
 
 
 
-### Environment Information
+## Environment Information
 
 
 
@@ -12,10 +12,18 @@
 <tr><td>Installation type: </td><td >yum</td></tr>
 </table>
 
-### Resources
+## Resources
 url: https://www.cnblogs.com/xiaolinstudy/p/7271861.html
 
-### 1. 通过简单的配置自定义命令来监控一个进程是否存在
+
+## Catelog
+
+[1.简单命令创建监控项](#通过简单的配置自定义命令来监控一个进程是否存在)</br>
+[2.通过脚本传递参数方式自定义监控](#通过脚本传递参数方式自定义监控)</br>
+
+
+## Content
+### 通过简单的配置自定义命令来监控一个进程是否存在
 
 
 这里我们首先将UnsafeUserParameters的设置为1，该值默认为0,0表示不适用，1表示开启自定义脚本。
@@ -124,7 +132,7 @@ UserParameter=proc.mysql,ps -ef|grep /usr/sbin/mysqld|grep -v grep|wc -l
 <img src=../images/36.jpg>
 
 
-### 2. 通过脚本传递参数方式自定义监控
+### 通过脚本传递参数方式自定义监控
 
 #### 编写脚本
 
@@ -178,6 +186,7 @@ IndexError: list index out of range
 <img src=../images/37.jpg>
 
 等待30秒，然后在latest data里面，我们可以看到已经有数据了。
+
 <img src=../images/38.jpg>
 
 
