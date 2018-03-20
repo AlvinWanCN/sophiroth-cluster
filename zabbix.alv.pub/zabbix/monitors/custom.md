@@ -90,7 +90,26 @@ UserParameter=proc.mysql,ps -ef|grep /usr/sbin/mysqld|grep -v grep|wc -l
 
 <img src=../images/31.jpg>
 
-然后完成配置，点击add添加。
+然后完成配置，确认添加，创建时最下面是add，再次点进去add会变成update。
 
 
 <img src=../images/32.jpg>
+
+然后完成配置了。
+
+##### step7: 验证触发器
+这里我们关闭被监控服务器的mysql服务
+```bash
+[root@db1 ~]# systemctl stop mysql
+```
+
+我们查询最新数据和图表，可以看到该item已有我们刚才设置的触发器了，然后最新的值是0了。
+
+<img src=../images/33.jpg>
+
+现在，我们也收到触发器触发的告警了，已收到邮件
+
+<img src=../images/34.jpg>
+
+<img src=../images/35.jpg>
+
