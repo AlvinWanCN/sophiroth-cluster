@@ -5,3 +5,5 @@
 
 ### configuration file full path
 /etc/ansible/hosts
+
+
