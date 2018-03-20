@@ -113,3 +113,13 @@ UserParameter=proc.mysql,ps -ef|grep /usr/sbin/mysqld|grep -v grep|wc -l
 
 <img src=../images/35.jpg>
 
+重启启动mysql服务
+
+```bash
+[root@db1 ~]# systemctl start mysql
+```
+
+然后收到邮件通知，mysql挂掉的问题已经恢复。
+
+<img src=../images/36.jpg>
+
