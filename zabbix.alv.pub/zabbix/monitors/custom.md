@@ -49,5 +49,48 @@ UserParameter=proc.mysql,ps -ef|grep /usr/sbin/mysqld|grep -v grep|wc -l
 ```
 #### 在web端图形化的方式添加我们的自定义监控。
 
-##### step1: 找到我们的目标主机
+##### step1: 找到我们的目标主机,点击items
 <img src=../images/22.jpg>
+
+##### step2: 点击Create item
+<img src=../images/23.jpg>
+
+##### step3: 配置item。
+<img src=../images/24.jpg>
+
+那现在我就将这个item配置好了。
+
+<img src=../images/25.jpg>
+
+##### step4: 查看监控到的数据
+<img src=../images/26.jpg>
+
+但是现在还没有告警功能，所以我们去创建一个触发器，一个Trigger
+
+##### step5: 创建一个trigger
+
+<img src=../images/27.jpg>
+
+##### step6： 配置trigger
+这里我们填写好name，选择Severity这里的内容，我们选择disaster，表示这个是严重的。
+
+然后我们先点击Expression这里的add
+
+<img src=../images/28.jpg>
+
+选择select
+
+<img src=../images/29.jpg>
+
+找到我们刚才配置的mysql进程监控的item名
+
+<img src=../images/30.jpg>
+
+然后配置表达式，这里我们配置为最新的值是0的时候我们告警。
+
+<img src=../images/31.jpg>
+
+然后完成配置，点击add添加。
+
+
+<img src=../images/32.jpg>
