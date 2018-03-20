@@ -123,3 +123,76 @@ UserParameter=proc.mysql,ps -ef|grep /usr/sbin/mysqld|grep -v grep|wc -l
 
 <img src=../images/36.jpg>
 
+
+### 2. 通过脚本传递参数方式自定义监控
+
+#### 编写脚本
+
+这里我在编写了一个脚本，名为/root/detect_proc.py, 该脚本接受一个参数，$1,同时我给这个脚本执行权限。
+```bash
+[root@db1 ~]# mkdir -p /etc/zabbix/scripts
+[root@db1 ~]# vim /etc/zabbix/scripts/detect_proc.py
+#!/usr/bin/python
+import sys,os
+processes_name=sys.argv[1]
+
+os.system('ps -ef|grep %s|grep -Ev "grep|%s"|wc -l'%(processes_name,__file__))
+[root@db1 ~]# chmod +x /etc/zabbix/scripts/detect_proc.py
+```
+
+#### 修改配置文件
+
+然后我们修改zabbix agent的配置文件，添加一行内容。
+这里我们定义了一个名为proc.item的key，这个key会包含chuan传参，在[]内，这个key调用的脚本事/root/detect_proc.py
+```bash
+# vim  /etc/zabbix/zabbix_agentd.conf
+UserParameter=proc.item[*],/etc/zabbix/scripts/detect_proc.py $1
+```
+#### 重启服务
+
+重启zabbix-agent服务
+```bash
+[root@db1 ~]# systemctl restart zabbix-agent
+```
+
+#### zabbix server端验证
+
+这里我们通过三条命令多角度验证吗，首先是不传参，结果报错。然后我们传入/usr/sbin/sshd，结果打印1，表示有一条进程匹配，然后我们传入elastic，打印0，表示0条匹配。
+
+```bash
+[root@zabbix ~]# zabbix_get -s db1 -k proc.item
+Traceback (most recent call last):
+  File "/etc/zabbix/scripts/detect_proc.py", line 3, in <module>
+    processes_name=sys.argv[1]
+IndexError: list index out of range
+[root@zabbix ~]# zabbix_get -s db1 -k proc.item[/usr/sbin/sshd]
+1
+[root@zabbix ~]# zabbix_get -s db1 -k proc.item[elastic]
+0
+
+```
+
+#### zabbix web端添加监控
+这里我们省略掉一些本文前面写到过的基本操作，直接到创建item那里。
+
+<img src=../images/37.jpg>
+
+等待30秒，然后在latest data里面，我们可以看到已经有数据了。
+<img src=../images/38.jpg>
+
+
+创建trigger告警
+
+<img src=../images/39.jpg>
+
+这里我停掉ssh服务试一下，我的是虚拟机，停掉ssh服务后xshell无法通过ssh连接了，这里我直接在虚拟机里关闭ssh服务
+
+<img src=../images/40.jpg>
+
+然后30秒内告警邮件就来了。
+
+<img src=../images/41.jpg>
+
+然后去启动服务，服务恢复的邮件就来了。
+
+<img src=../images/42.jpg>
