@@ -11,6 +11,7 @@
 [mysqld]
 character_set_server=utf8
 lower_case_table_names=1
+max_connect_errors=1000
 
 #
 # * Galera-related settings
