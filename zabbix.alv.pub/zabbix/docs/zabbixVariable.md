@@ -35,4 +35,4 @@ zabbix内置的一些常用变量如下：
 
 问题解决了、恢复时的通知
 
-<img src=../images/59.jpg>
+<img src=../images/60.jpg>
