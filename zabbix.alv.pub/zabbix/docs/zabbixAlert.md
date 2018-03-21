@@ -1,9 +1,15 @@
 <p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
 
-## Zabbix Alert Configuration
+## Catalog
+
+[1. Zabbix原生配置邮件告警](#Zabbix配置自带smtp邮件告警)
+
+[2. 通过脚本发送邮件告警](#通过脚本发送邮件告警)
+
+[3. 微信告警](微信告警)
 
  
-#### Zabbix origin Email Alert
+### Zabbix配置自带smtp邮件告警
 
 点击administration, 然后点Media types
 
@@ -22,7 +28,7 @@
 然后就可以让相关的用户收到告警邮件了。
 
 
-#### Zabbix script send email.
+### 通过脚本发送邮件告警
 
 除了通过原有的zabbix配置发送email之外，我们还可以通过脚本来发送邮件。
 
@@ -49,3 +55,75 @@
 
 然后我们在被监控的服务器上关掉zabbix-agent之后，就会收到邮件告警了。</br>
 <img src=../images/12.jpg></br>
+
+### 微信告警
+
+#### Resource
+url:http://blog.csdn.net/abcdocker/article/details/73295133
+
+#### step 1: 创建一个微信企业号
+
+这里不讲述微信企业号如何创建
+
+#### step 2: 为微信企业号添加成员
+
+这里也不讲述如何添加成员
+
+#### step3: 点击企业应用，新增应用并配置
+
+<img src=http://static.zybuluo.com/abcdocker/4zcnqacal65un272h1pv9j0o/image_1bijfi97pgee1lie1ggb1p0s9uo2n.png>
+
+然后设置应用，填写相关信息，并将成员添加进去
+
+<img src=http://static.zybuluo.com/abcdocker/q2c88y7rzwzhsi6c87zcu6zq/image_1bijfkm9h1rq41m0pe7vso582134.png>
+
+创建完成后，记录下Agentld、Secret
+
+<img src=http://static.zybuluo.com/abcdocker/5t2536f2rfysqlbbm2u45q0p/image_1bijfo71hlioppi6ptvkp12d93h.png>
+
+```确认下我们的zabbix告警脚本是/usr/lib/zabbix/alertscripts目录
+# grep alertscripts /etc/zabbix/zabbix_server.conf
+AlertScriptsPath=/usr/lib/zabbix/alertscripts
+```
+
+#### step4: 设置脚本并设置
+```bash
+# cd /usr/lib/zabbix/alertscripts
+# wget http://download.zhsir.org/Zabbix/weixin_linux_amd64
+# mv weixin_linux_amd64 wechat
+# chmod 755 wechat
+# chown zabbix:zabbix wechat
+[root@natasha alertscripts]# ./wechat --corpid=wx0a4322192b28277c --corpsecret=6qWFgpBegBnJlgXVIiNazOBAPtYlQYIZ8_p0Vxl7omc --msg="出事了！" --agentid=1000002 --user=alvin
+{"errcode":0,"errmsg":"ok","invaliduser":""}
+```
+
+最终，我们通过wechat这个脚本然后添加一些相应的参数就可以成功发出消息了，
+这里描述一下我们那些参数的内容
+```
+--corpid=我们企业里面的id
+--corpsecret=这里就是我们Secret里面的id
+--msg={ALERT.MESSAGE}
+--agentid= Agentld ID
+--user={ALERT.SENDTO}
+```
+
+#### step5: 创建告警的media
+
+然后我们去zabbix web端创建一个media
+
+<img src=../images/47.jpg>
+
+
+#### 为用户添加微信告警
+
+这里我们为用户添加这样一个告警的media，使用微信告警。
+
+<img src=../images/48.jpg>
+
+send to填写的alvin，alvin是我们在企业微信号里添加alvin这个用户的时候为其设置的账号是alvin
+
+<img src=../images/49.jpg>
+
+然后在actions 里面也修改有些我们一个告警的action的内容，将告警方式设置为微信
+
+<img src=../images/50.jpg>

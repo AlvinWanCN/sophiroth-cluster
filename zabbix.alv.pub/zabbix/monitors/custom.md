@@ -4,8 +4,6 @@
 
 ## Environment Information
 
-
-
 <table align="left">
 <tr><td>System release version: </td><td>centos7.4</td></tr>
 <tr><td>Zabbix version: </td><td>3.4.7</td></tr>
