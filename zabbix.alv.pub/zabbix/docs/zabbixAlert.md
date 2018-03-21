@@ -138,3 +138,18 @@ send to填写的alvin，alvin是我们在企业微信号里添加alvin这个用�
 <img src=../images/52.jpg>
 
 <img src=../images/53.jpg>
+
+
+#### 使用企业微信接受告警
+
+这里我下载了企业微信，专门用于处理企业微信里的东西，查看告警。
+
+然后我的手机就收到了这些提醒。 （我将我的zabbix 微信告警的应用改了名字和头像了）
+
+<img src=../images/54.jpg>
+
+<img src=../images/55.jpg>
+
+<img src=../images/56.jpg>
+
+<img src=../images/57.jpg>
