@@ -71,7 +71,6 @@ url:http://blog.csdn.net/abcdocker/article/details/73295133
 
 #### step3: 点击企业应用，新增应用并配置
 
-<img src=http://static.zybuluo.com/abcdocker/4zcnqacal65un272h1pv9j0o/image_1bijfi97pgee1lie1ggb1p0s9uo2n.png>
 
 然后设置应用，填写相关信息，并将成员添加进去
 
@@ -79,7 +78,7 @@ url:http://blog.csdn.net/abcdocker/article/details/73295133
 
 创建完成后，记录下Agentld、Secret
 
-<img src=http://static.zybuluo.com/abcdocker/5t2536f2rfysqlbbm2u45q0p/image_1bijfo71hlioppi6ptvkp12d93h.png>
+<img src=../images/58.jpg>
 
 ```确认下我们的zabbix告警脚本是/usr/lib/zabbix/alertscripts目录
 # grep alertscripts /etc/zabbix/zabbix_server.conf
