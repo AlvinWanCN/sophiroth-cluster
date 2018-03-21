@@ -92,7 +92,7 @@ AlertScriptsPath=/usr/lib/zabbix/alertscripts
 # mv weixin_linux_amd64 wechat
 # chmod 755 wechat
 # chown zabbix:zabbix wechat
-[root@natasha alertscripts]# ./wechat --corpid=wx0a4322192b28277c --corpsecret=6qWFgpBegBnJlgXVIiNazOBAPtYlQYIZ8_p0Vxl7omc --msg="出事了！" --agentid=1000002 --user=alvin
+[root@natasha alertscripts]# ./wechat --corpid=wx0axxxxxxxxxxxxxx --corpsecret=6qWFgpBexxxxxxxxxxxxxxxxxxxxxxxxxx --msg="warning!" --agentid=1000002 --user=alvin
 {"errcode":0,"errmsg":"ok","invaliduser":""}
 ```
 
