@@ -127,3 +127,14 @@ send to填写的alvin，alvin是我们在企业微信号里添加alvin这个用�
 然后在actions 里面也修改有些我们一个告警的action的内容，将告警方式设置为微信
 
 <img src=../images/50.jpg>
+
+#### 告警效果
+
+这里我故意触发了我自己定义的告警内容的告警，然后收到了微信
+
+
+<img src=../images/51.jpg>
+
+<img src=../images/52.jpg>
+
+<img src=../images/53.jpg>
