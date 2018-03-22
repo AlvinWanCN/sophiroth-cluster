@@ -30,3 +30,5 @@
 ```
 # echo vpnkey|mail -s 'Alvin vpn key' -a ikev2-vpn.mobileconfig alvin.wan@xxxxxxx.xxx
 ```
+
+服务器上如果无法发送邮件，可以将该文件下载到本地，然后发到手机上去，IOS手机从邮件里直接打开安装就好了。
