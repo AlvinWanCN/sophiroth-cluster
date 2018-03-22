@@ -20,6 +20,10 @@ url: https://www.cnblogs.com/xiaolinstudy/p/7271861.html
 [2.通过脚本传递参数方式自定义监控](#通过脚本传递参数方式自定义监控)</br>
 [3.触发器指定时间段或次数的平均值](#触发器指定时间段内的平均值或指定次数的平均值告警)</br>
 [4.连续几次不达标则触发告警](#连续几次不达标则触发告警)</br>
+[5.匹配到指定字符告警](#匹配指定内容告警)</br>
+[6.指定监控告警时执行远程脚本](#指定监控告警时执行远程脚本)</br>
+
+
 
 ## Content
 ### 通过简单的配置自定义命令来监控一个进程是否存在
@@ -255,3 +259,53 @@ zabbix 默认的监控的targgers里面已经有对网卡流量的监控了，�
 恢复的邮件
 
 <img src=../images/46.jpg>
+
+
+### 匹配指定内容告警
+在脚本的返回结果中如果包含0，则值=1，1不等于0，
+所以不告警，如果没有找到str(0)里面的这个值0，则值为0，则触发告警。我这个脚本正常情况下是返回0的，非正常情况就会返回其他一堆字符串了，就要告警了，而且把那串字符串都放在告警内容里
+
+
+<img src=../images/61.jpg>
+
+
+如果我们是要指定net.conn的匹配的内容为success，则表达式可以这样写：
+{alv.pub:net.conn.str(success)}=0
+
+
+### 指定监控项告警时执行远程脚本
+
+这里我们创建一个action，下图中是我已经创建好了的。
+
+<img src=../images/62.jpg>
+
+这里我们指定条件，满足我们设定的条件则触发，这里我们添加一条 Trigger name like Abnormal netstat，因为我们的需求是在Abnormal netstat这个trigger告警被触发的时候执行。
+
+
+
+<img src=../images/63.jpg>
+
+上面的Default Message不重要，因为我们不需要发消息。
+
+注意是在下面的内容，我们要定义Operations。
+
+这里我们定义Operation type为Remote command，而不是Send message
+
+定义Target list为Current host，也就是当前主机，目标主机。
+
+定义Type 为Custom script,因为这我们要使用自己写在下面的脚本内容。
+
+然后就在commands 里面填写我们需要在目标服务器上执行的内容就好了， 命令的执行是用zabbix用户执行的，如果需要root权限，可以给zabbix用户添加sudo权限，然后使用sudo命令来获取root权限。
+
+<img src=../images/64.jpg>
+
+
+然后我们在zabbix web端的配置就配好了，但目标服务器上要能运行这种命令，需要目标服务器上在zabbix配置里面开启这项功能，默认是关闭的。
+
+```
+# vim /etc/zabbix/zabbix_agentd.conf
+EnableRemoteCommands=1
+# systemctl restart zabbix-agent
+```
+
+然后就可以正常使用了。
