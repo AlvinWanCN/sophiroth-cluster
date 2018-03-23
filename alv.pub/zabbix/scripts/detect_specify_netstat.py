@@ -3,4 +3,4 @@
 import sys,os
 specified_words=sys.argv
 for i in specified_words:
-    os.system('netstat -anplut|grep %s'%i)
+    os.system('netstat -anplut|egrep "%s"'%i)
