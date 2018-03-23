@@ -5,7 +5,7 @@ import os
 ##检查是否有我们自己设定之外的网络连接出现，没有则返回0，有则返回出现的内容。
 
 
-basicCommand='netstat -anplut|grep -ivE "180.169.223.10|connections|Address|1005|alvin|801|mysqld|sshd|1281|docker-proxy|32000|AliYunDUn|pptp|ntpd|slapd|named|100.100|wechat|140.207|183.3|8003|3306|:53"'
+basicCommand='netstat -anplut|grep -ivE "connections|Address|10050|10051|801|mysqld|sshd|docker-proxy|pptp|ntpd|slapd|named|wechat|140.207|8003|:53"'
 
 content=os.popen(basicCommand).read().split('\n')[:-1]
 
