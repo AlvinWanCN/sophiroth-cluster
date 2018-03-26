@@ -73,7 +73,7 @@ Configuration saved to /etc/target/saveconfig.json
 
 - 启动iscsi服务
 ```bash
-# systemctl enable iscsi
+# systemctl start iscsi
 ```
 - 设置开机启动服务
 ```bash
