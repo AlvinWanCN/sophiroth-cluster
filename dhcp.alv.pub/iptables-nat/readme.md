@@ -18,3 +18,5 @@ ens34是内网网卡，ens33是外网网卡。
 ```bash
 # echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
+
+
