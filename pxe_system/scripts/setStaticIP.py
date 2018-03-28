@@ -24,3 +24,5 @@ def changeIP(key):
 
 for i in ipdict.keys():
     changeIP(i)
+
+subprocess.call('systemctl restart network',shell=True)
