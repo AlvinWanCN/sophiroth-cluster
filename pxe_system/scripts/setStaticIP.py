@@ -9,6 +9,7 @@ netFile='/etc/sysconfig/network-scripts/ifcfg-ens32'
 subprocess.call("sed -i 's/BOOTPROTO=.*/BOOTPROTO=static/' %s "%netFile,shell=True)
 
 ipdict={}
+ipdict['IPADDR']=ip
 ipdict['NETMASK']='255.255.255.0'
 ipdict['GATEWAY']='192.168.127.254'
 ipdict['DNS1']='47.75.0.56'
