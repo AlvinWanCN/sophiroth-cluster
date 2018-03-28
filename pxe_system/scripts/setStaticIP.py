@@ -20,7 +20,7 @@ def changeIP(key):
     if subprocess.call('grep %s %s'%(key,netFile),shell=True) == 0:
         subprocess.call("sed -i 's/%s=.*/%s=%s/' %s"%(key,key,ipdict[key],netFile),shell=True)
     else:
-        subprocess.call('echo "%s=%s" > %s'%(key,ipdict[key],netFile),shell=True)
+        subprocess.call('echo "%s=%s" >> %s'%(key,ipdict[key],netFile),shell=True)
 
 for i in ipdict.keys():
     changeIP(i)
