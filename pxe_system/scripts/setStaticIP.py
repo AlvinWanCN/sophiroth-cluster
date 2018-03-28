@@ -14,7 +14,7 @@ ipdict['NETMASK']='255.255.255.0'
 ipdict['GATEWAY']='192.168.127.254'
 ipdict['DNS1']='47.75.0.56'
 ipdict['DNS2']='114.114.114.114'
-ipdict['DOMAIN']='alv.pub shenmin.com'
+ipdict['DOMAIN']='"alv.pub shenmin.com"'
 
 def changeIP(key):
     if subprocess.call('grep %s %s'%(key,netFile),shell=True) == 0:
