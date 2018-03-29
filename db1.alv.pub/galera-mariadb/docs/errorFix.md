@@ -26,5 +26,10 @@
  
  #### 解决方案：
  
- /etc/init.d/mysql start --wsrep-new-cluster 
+ /etc/init.d/mysql start --wsrep-new-cluster
+
+
+ #### 报错信息里说有Address already in use之类的报错。
+
+ 如果报错里有Address already in use之类的报错，注意是不是4567端口还在监听状态，那个进程也是mysql的进程，需要先关闭这个进程，kill掉。
  
