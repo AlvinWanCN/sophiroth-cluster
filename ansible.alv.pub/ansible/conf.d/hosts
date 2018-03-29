@@ -15,6 +15,7 @@ iscsi
 dhcp
 jenkins
 maxscale
+saltstack
 
 [cloud.alv.pub]
 alv.pub:105
