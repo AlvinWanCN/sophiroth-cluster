@@ -14,7 +14,7 @@ dc
 iscsi
 dhcp
 jenkins
+maxscale
 
 [cloud.alv.pub]
-natasha.alv.pub
 alv.pub:105
