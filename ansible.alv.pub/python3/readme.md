@@ -15,8 +15,8 @@ python3 software information on ansible.alv.pub
 
 ### Install python3
 ```bash
-# wget https://www.python.org/ftp/python/3.6.5/Python-3.6.4.tar.xz
-#  tar xf Python-3.6.4.tar.xz -C /usr/local/src/
+# wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz
+#  tar xf Python-3.6.5 .tar.xz -C /usr/local/src/
 # cd /usr/local/src/Python-3.6.5/
 # ./configure --prefix=/usr/local/python3
 # make

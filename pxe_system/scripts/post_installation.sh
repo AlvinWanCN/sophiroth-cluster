@@ -15,3 +15,6 @@ systemctl stop postfix ##stop postfix
 systemctl disable postfix ## disable postfix
 echo "Welcome to Sophiroth Compute System" > /etc/motd #为服务器添加欢迎信息。
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/pxe_system/scripts/resetAnsibleFingerprint.py)" #访问ansible api,修改本服务器的指纹。
+curl http://saltstack.alv.pub:8001/cgi-bin/accep_salt-minion.py?pw=sophiroth
+
+

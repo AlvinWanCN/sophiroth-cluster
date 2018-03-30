@@ -58,7 +58,7 @@ external_auth:
 
 ```bash
 # cd /var/www/halite/halite
-# nohup python server_bottle.py -d -C -l debug -s cherrypy &> /tmp/salt-ui.log &
+# nohup python server_bottle.py -d -C -l debug -s cherrypy &>/tmp/salt-ui.log &
 ```
 
 然后就可以通过去浏览器访问了。
