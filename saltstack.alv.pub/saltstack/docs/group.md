@@ -1,6 +1,14 @@
 <p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
 
 
+## Resources
+
+
+http://docs.saltstack.com/topics/targeting/nodegroups.html
+
+http://docs.saltstack.com/ref/states/top.html
+
+
 ## salt 的分组
 
 <img src=../images/1.png>
@@ -80,18 +88,6 @@ db2.alv.pub:
 db1.alv.pub:
 ```
 
-想匹配所有minion中主机名(minion id)以webserv开头并且运行在Debian系统上或者minion的主机名(minion id)匹配正则表达式web-dc1-srv.* ，就可以用下表方式表示：
-
-salt -C 'webserv* and G@os:Debian or E@web-dc1-srv.*' test.ping
-
-当然也可以在预先分组时将这个配置写在分组规则里。在top.sls中可以如下使用:
-
-base:
-  'webserv* and G@os:Debian or E@web-dc1-srv.*':
-    – match: compound
-    – webserver
-参考页面：
-
 
 #### 子网匹配
 
@@ -131,9 +127,5 @@ db2.alv.pub:
 db3.alv.pub:
 ```
 
-
-http://docs.saltstack.com/topics/targeting/nodegroups.html
-
-http://docs.saltstack.com/ref/states/top.html
 
 ```
