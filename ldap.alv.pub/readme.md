@@ -198,3 +198,14 @@ getent passwd ldapuser1
 id ldapuser1
 
 ```
+
+
+
+
+ldap客户端服务是nslcd，如果改变了目标服务器，要换个ldap服务器，修改了配置之后，则需要重启服务
+
+```bash
+systemctl restart nslcd
+```
+
+
