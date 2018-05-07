@@ -23,7 +23,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-clu
 ```bash
 # yum install zabbix-* -y #this installation will include httpd and php and some depended packages.
 ```
-### configuration database
+### Configure database
 这里我们使用的不是本地的数据库，而是一个已经配置好的数据库集群，我们通过数据库的前端maxscale访问数据。</br>
 先在数据库离配置好zabbix需要用的数据库和用户名密码和权限。
 ```sql
@@ -42,7 +42,7 @@ Query OK, 0 rows affected (0.01 sec)
 [root@zabbix zabbix-server-mysql-3.4.7]# zcat create.sql.gz|mysql -uzabbix -pzabbix -P4006 -hmaxscale zabbix
 ```
 
-### Configuration zabbix server 
+### Configure zabbix server
 这里我们主要要注意数据库的配置是否正确
 ```bash
 # curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/zabbix.alv.pub/zabbix/conf.d/zabbix_server.conf > /etc/zabbix/zabbix_server.conf 
@@ -66,7 +66,7 @@ LogSlowQueries=3000
 
 ```
 
-### Configuration httpd service
+### Configure httpd service
 修改zabbix时区，在19行，将注销去掉，将时区改为本地时区，这里我们改成亚洲上海。
 ```bash
 [root@zabbix ~]# vim /etc/httpd/conf.d/zabbix.conf 
@@ -102,5 +102,5 @@ web前端简单的配置结束之后，输入用户名面登录，默认用户�
 yum install zabbix-agent -y
 ```
 
-### Configuration zabbix-agent.
+### Configure zabbix-agent.
 
