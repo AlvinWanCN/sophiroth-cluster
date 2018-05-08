@@ -1,6 +1,7 @@
 <p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
 
 
+
 ## dns service
 
 这里我们使用的软件是bind, 安装后的服务是named，提供dns服务。
@@ -10,3 +11,4 @@
 dns服务是使用的udp协议53号端口，一个客户端就可以通过该端口占用dns服务器不小的流量。
 
 所以我们需要让udp 53号端口只提供给我们允许的IP访问。
+
