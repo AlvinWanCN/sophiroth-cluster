@@ -15,6 +15,9 @@ hostDict['db3']=makeAlvHost('db3','57')
 hostDict['maxscale']=makeAlvHost('maxscale','58')
 hostDict['saltstack']=makeAlvHost('saltstack','59')
 hostDict['ldap']=makeAlvHost('ldap','61')
+hostDict['openstack1']=makeAlvHost('openstack1','71')
+hostDict['openstack2']=makeAlvHost('openstack2','72')
+hostDict['openstack3']=makeAlvHost('openstack3','73')
 
 
 ipstr=os.popen('ip a s ens32|grep global').read() #获取关于ip信息的字符串
