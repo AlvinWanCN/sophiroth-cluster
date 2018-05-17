@@ -20,7 +20,10 @@ hostDict['openstack2']=makeAlvHost('openstack2','72')
 hostDict['openstack3']=makeAlvHost('openstack3','73')
 
 
-ipstr=os.popen('ip a s ens32|grep global').read() #获取关于ip信息的字符串
+try:
+    ipstr=os.popen('ip a s ens32|grep global').read() #获取关于ip信息的字符串
+except:
+    ipstr = os.popen('ip a s ens33|grep global').read()  # 获取关于ip信息的字符串
 lastIPNumber=re.findall(r'\w\s(.*)\/',ipstr)[0].split('.')[-1]  #截取ip最后一位
 defaultName='os'+str(lastIPNumber)+'.alv.pub' #定义默认主机名
 os.system('hostname %s' % defaultName) #设置默认主机名
