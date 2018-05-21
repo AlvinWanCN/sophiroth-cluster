@@ -18,6 +18,9 @@ hostDict['ldap']=makeAlvHost('ldap','61')
 hostDict['openstack1']=makeAlvHost('openstack1','71')
 hostDict['openstack2']=makeAlvHost('openstack2','72')
 hostDict['openstack3']=makeAlvHost('openstack3','73')
+hostDict['keystone1']=makeAlvHost('keystone1','74')
+hostDict['keystone2']=makeAlvHost('keystone2','75')
+
 
 
 
