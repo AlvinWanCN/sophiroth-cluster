@@ -20,6 +20,10 @@ hostDict['openstack2']=makeAlvHost('openstack2','72')
 hostDict['openstack3']=makeAlvHost('openstack3','73')
 hostDict['keystone1']=makeAlvHost('keystone1','74')
 hostDict['keystone2']=makeAlvHost('keystone2','75')
+hostDict['rabbitmq1']=makeAlvHost('rabbitmq1','76')
+
+
+
 
 
 
