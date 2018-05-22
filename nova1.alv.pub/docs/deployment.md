@@ -55,7 +55,7 @@ yum install -y openstack-utils
 echo '#
 [DEFAULT]
 enabled_apis = osapi_compute,metadata
-transport_url = rabbit://openstack:openstack@controller
+transport_url = rabbit://openstack:openstack@rabbitmq1.alv.pub
 my_ip = 192.168.127.79
 use_neutron = True
 firewall_driver = nova.virt.firewall.NoopFirewallDriver
