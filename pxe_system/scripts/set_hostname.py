@@ -25,7 +25,7 @@ hostDict['glance']=makeAlvHost('glance','77')
 hostDict['neutron']=makeAlvHost('neutron','78')
 hostDict['nova1']=makeAlvHost('nova1','79')
 hostDict['horizon']=makeAlvHost('horizon','80')
-hostDict['nova-computer1']=makeAlvHost('nova-computer1','80')
+hostDict['nova-computer1']=makeAlvHost('nova-computer1','81')
 
 
 
