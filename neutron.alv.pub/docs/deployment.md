@@ -89,7 +89,7 @@ enable_ipset = True
 # bond0是网卡名
 echo '#
 [linux_bridge]
-physical_interface_mappings = provider:bond0
+physical_interface_mappings = provider:ens32
 [vxlan]
 enable_vxlan = false
 #local_ip = 10.2.1.20
@@ -180,11 +180,20 @@ systemctl enable neutron-server.service \
 systemctl start neutron-server.service \
   neutron-linuxbridge-agent.service neutron-dhcp-agent.service \
   neutron-metadata-agent.service
-echo "查看网络,正常是：控制节点3个ID，计算节点1个ID"
+echo "查看网络,正常是：控制节点3个ID"
 
 ```
 
 openstack 客户端执行
 ```
 openstack network agent list
+```
+
+
+# Deploy Neutron Compute node
+
+## Install Software
+
+```
+
 ```
