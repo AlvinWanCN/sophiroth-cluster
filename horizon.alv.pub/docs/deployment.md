@@ -133,7 +133,11 @@ OPENSTACK_API_VERSIONS = {
 #'>>$Setfiles
 #
 ```
-
+####登录界面域
+设置为默认域，default， 进行该设置后，登录页面不再有domain输入框
+```
+sed -i '/MULTIDOMAIN_SUPPORT/cOPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False' /etc/openstack-dashboard/local_settings
+```
 
 ```
 systemctl enable httpd
