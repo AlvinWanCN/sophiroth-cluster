@@ -13,12 +13,30 @@
 curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
 ```
 
+### keystone创建cinder用户、服务、API
+以下操纵在openstack客户端做，这里我们是在horizon.alv.pub上执行的。
+```
+source ./admin-openstack.sh
+openstack user create --domain default --password=cinder cinder
+openstack role add --project service --user cinder admin
+openstack service create --name cinderv2   --description "OpenStack Block Storage" volumev2
+openstack service create --name cinderv3   --description "OpenStack Block Storage" volumev3
+openstack endpoint create --region RegionOne   volumev2 public http://cinder_control1.alv.pub:8776/v2/%\(project_id\)s
+openstack endpoint create --region RegionOne   volumev2 internal http://cinder_control1.alv.pub:8776/v2/%\(project_id\)s
+openstack endpoint create --region RegionOne   volumev2 admin http://cinder_control1.alv.pub:8776/v2/%\(project_id\)s
+openstack endpoint create --region RegionOne   volumev3 public http://cinder_control1.alv.pub:8776/v3/%\(project_id\)s
+openstack endpoint create --region RegionOne   volumev3 internal http://cinder_control1.alv.pub:8776/v3/%\(project_id\)s
+openstack endpoint create --region RegionOne   volumev3 admin http://cinder_control1.alv.pub:8776/v3/%\(project_id\)s
+
+```
 
 
 ### 安装软件并备份配置文件
 
 ```
-
+yum install openstack-cinder -y
+yum install nfs-utils -y #NFS
+cp /etc/cinder/cinder.conf{,.bak}
 ```
 
 
@@ -60,4 +78,36 @@ password = cinder
 [oslo_concurrency]
 lock_path = /var/lib/cinder/tmp
 '>/etc/cinder/cinder.conf
+```
+
+### 在nova控制节点添加配置
+
+
+```
+echo '
+[cinder]
+os_region_name = RegionOne
+'>>/etc/nova/nova.conf
+
+```
+然后重启服务
+
+```
+systemctl restart openstack-nova-api.service
+```
+
+### 初始化数据
+
+```
+su -s /bin/sh -c "cinder-manage db sync" cinder
+mysql -h controller -u cinder -pcinder -e "use cinder;show tables;" #检测
+```m
+
+### 启动cinder服务
+
+```
+systemctl enable openstack-cinder-api.service openstack-cinder-scheduler.service
+systemctl start openstack-cinder-api.service openstack-cinder-scheduler.service
+netstat -antp|grep 8776 #cheack
+
 ```
