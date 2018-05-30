@@ -34,7 +34,7 @@ openstack endpoint create --region RegionOne   volumev3 admin http://cinder-cont
 ### 安装软件并备份配置文件
 
 ```
-yum install openstack-cinder -y
+yum install openstack-cinder python-memcached -y
 yum install nfs-utils -y #NFS
 cp /etc/cinder/cinder.conf{,.bak}
 ```

@@ -176,10 +176,10 @@ systemctl restart openstack-nova-api.service
 ```
 systemctl enable neutron-server.service \
   neutron-linuxbridge-agent.service neutron-dhcp-agent.service \
-  neutron-metadata-agent.service
+  neutron-metadata-agent.service neutron-l3-agent
 systemctl start neutron-server.service \
   neutron-linuxbridge-agent.service neutron-dhcp-agent.service \
-  neutron-metadata-agent.service
+  neutron-metadata-agent.service neutron-l3-agent
 echo "查看网络,正常是：控制节点3个ID"
 
 ```
