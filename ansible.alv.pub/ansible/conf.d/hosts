@@ -16,6 +16,15 @@ dhcp
 jenkins
 maxscale
 saltstack
-
+cinder-storage1
+cinder-control1
+neutron-computer1
+nova-computer1
+horizon
+nova1
+neutron
+glance
+rabbitmq1
+keystone1
 [cloud.alv.pub]
 alv.pub:105
