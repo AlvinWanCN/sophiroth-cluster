@@ -27,7 +27,7 @@ nexus download website: https://www.sonatype.com/oss-thank-you-tgz
 
  wget https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/oss/nexus-2.14.8-01-bundle.tar.gz
 
-#解压nexus包到指定目录
+解压nexus包到指定目录
 
 .. code-block:: bash
 
@@ -44,7 +44,6 @@ Startup Nexus
  useradd nexus
  sed -i 's/^#RUN_AS_USER.*/RUN_AS_USER=nexus/' /usr/local/nexus-2.14.8-01/bin/nexus
  /etc/init.d/nexus start
-
 
 Nexus web login
 `````````````````
