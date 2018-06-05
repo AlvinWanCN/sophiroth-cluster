@@ -2,6 +2,9 @@
 Deploy nexus service
 #####################
 
+`Alvin Wan`_
+
+.. _alvin wan: https://github.com/alvinwancn
 
 .. contents:: Catalog
 
