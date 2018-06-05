@@ -16,8 +16,7 @@ https://github.com/AlvinWanCN/sophiroth-cluster.git
 
 - [x]  Polling ignores commits in certain paths.Included Regions
 
-alv.pub/named/conf.d/alv.pub.zone
-
+dns.alv.pub/named/conf.d/alv.pub.zone
 
 - [x] Poll SCM
 
@@ -25,8 +24,8 @@ alv.pub/named/conf.d/alv.pub.zone
 
 - [x] SSH site: 
 
-alvin@alv.pub:xxx
+alvin@dns.alv.pub:xxx
 
 - [x] Command
 
-sudo python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/alv.pub/named/scripts/update.named.alv.pub.py)"
+sudo python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/dns.alv.pub/named/scripts/update.named.dns.alv.pub.py)"
