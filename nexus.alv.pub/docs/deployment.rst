@@ -61,8 +61,8 @@ Configure nexus
 
   - 2.1,  Configure remote agent
 
-    Click Configuration
+   Click Configuration
 
-    Remote Storage Location: http://maven.aliyun.com/nexus/content/groups/public/
+   Remote Storage Location: http://maven.aliyun.com/nexus/content/groups/public/
 
-    Central's Remote agent repositories config finished.
+   Central's Remote agent repositories config finished.
