@@ -50,3 +50,21 @@
 ````````
 
 选中用户，点击右上角的“导出”按钮，导出用户完成。
+
+
+* 一个星*表示前面一个圆点
+
+  * 前面加个空格，也就是有个缩进后，圆点也会变化为空星圆点，并有缩进，像二级圆点一样，和上面的要换行
+
+
+.. image::https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png
+
+.. |logo| image:: https://help.github.com/assets/images/site/favicon.ico
+.. |name| replace:: SeayXu
+
+
+
+
+This is a paragraph that contsains `a link`_
+
+.. _a link: http://example.com/
