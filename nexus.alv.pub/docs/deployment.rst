@@ -20,27 +20,31 @@ download nexus
 ----------------
 
 nexus download website: https://www.sonatype.com/oss-thank-you-tgz
+.. code-block:: bash
 
-wget https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/oss/nexus-2.14.8-01-bundle.tar.gz
+ wget https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/oss/nexus-2.14.8-01-bundle.tar.gz
 
 #解压nexus包到指定目录
+.. code-block:: bash
 
-tar xf nexus-2.14.8-01-bundle.tar.gz -C /usr/local/
+ tar xf nexus-2.14.8-01-bundle.tar.gz -C /usr/local/
 
 
 Startup Nexus
 ```````````````
 
-cp /usr/local/nexus-2.14.8-01/bin/nexus /etc/init.d/
-sed  -i 's#^NEXUS_HOME.*#NEXUS_HOME=\"/usr/local/nexus-2.14.8-01/\"#' nexus
-useradd nexus
-sed -i 's/^#RUN_AS_USER.*/RUN_AS_USER=nexus/' /usr/local/nexus-2.14.8-01/bin/nexus
+.. code-block:: bash
 
-/etc/init.d/nexus start
+ cp /usr/local/nexus-2.14.8-01/bin/nexus /etc/init.d/
+ sed  -i 's#^NEXUS_HOME.*#NEXUS_HOME=\"/usr/local/nexus-2.14.8-01/\"#' nexus
+ useradd nexus
+ sed -i 's/^#RUN_AS_USER.*/RUN_AS_USER=nexus/' /usr/local/nexus-2.14.8-01/bin/nexus
+ /etc/init.d/nexus start
 
 
-Nexus 登录
-`````````
+Nexus web login
+`````````````````
 
 URL:http://nexus.alv.pub:8081/nexus/
 
+default user/password: admin/admin123
