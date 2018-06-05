@@ -3,7 +3,7 @@ Deploy nexus service
 #####################
 
 
-.. contents::
+.. contents:: Catalog
 
 Install java
 ``````````````
@@ -20,11 +20,13 @@ download nexus
 ----------------
 
 nexus download website: https://www.sonatype.com/oss-thank-you-tgz
+
 .. code-block:: bash
 
  wget https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/oss/nexus-2.14.8-01-bundle.tar.gz
 
 #解压nexus包到指定目录
+
 .. code-block:: bash
 
  tar xf nexus-2.14.8-01-bundle.tar.gz -C /usr/local/
