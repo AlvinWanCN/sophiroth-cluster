@@ -10,7 +10,9 @@ Install java
 
 java download website: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
-yum install jdk-8u171-linux-x64.rpm
+.. code-block::
+
+ yum install jdk-8u171-linux-x64.rpm
 
 
 Install nexus
