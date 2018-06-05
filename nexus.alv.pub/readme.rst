@@ -1,7 +1,6 @@
-#######################################
-nexus service , maven local repository
-#######################################
-
+#####################
+Deploy nexus service
+#####################
 
 `Alvin Wan`_
 
@@ -43,11 +42,10 @@ Startup Nexus
 
 .. code-block:: bash
 
+  cp /usr/local/nexus-2.14.8-01/bin/nexus /etc/init.d/
   sed  -i 's#^NEXUS_HOME.*#NEXUS_HOME=\"/usr/local/nexus-2.14.8-01/\"#' nexus
   useradd nexus
   sed -i 's/^#RUN_AS_USER.*/RUN_AS_USER=nexus/' /usr/local/nexus-2.14.8-01/bin/nexus
-  cp /usr/local/nexus-2.14.8-01/bin/nexus /etc/init.d/
-
   /etc/init.d/nexus start
 
 Nexus web login
