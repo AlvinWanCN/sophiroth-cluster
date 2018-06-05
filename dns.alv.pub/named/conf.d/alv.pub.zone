@@ -35,6 +35,7 @@ nova-computer1 A 192.168.127.81
 neutron-computer1 A 192.168.127.82
 cinder-storage1 A 192.168.127.83
 cinder-control1 A 192.168.127.84
+nexus   A   192.168.127.85
 c1      A       192.168.1.131
 c2      A       192.168.1.132
 c3      A       192.168.1.133
