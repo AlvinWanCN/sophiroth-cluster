@@ -21,7 +21,7 @@ Install java
 Install nexus
 ``````````````
 
-download nexus
+Download nexus
 ----------------
 
  nexus download website: https://www.sonatype.com/oss-thank-you-tgz
@@ -69,3 +69,7 @@ Configure nexus
    Remote Storage Location: http://maven.aliyun.com/nexus/content/groups/public/
 
    Central's Remote agent repositories config finished.
+
+- 3，Artifact Upload
+
+ Click 3rd party, click Artifact Upload,
