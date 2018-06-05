@@ -51,3 +51,18 @@ Nexus web login
 URL:http://nexus.alv.pub:8081/nexus/
 
 default user/password: admin/admin123
+
+Configure nexus
+````````````````
+
+- 1, Check Repositories
+
+- 2, Enter Central
+
+ - 2.1,  Configure remote agent
+
+  -- Configuraion --
+
+  Remote Storage Location: http://maven.aliyun.com/nexus/content/groups/public/
+
+  Central's Remote agent repositories config finished.
