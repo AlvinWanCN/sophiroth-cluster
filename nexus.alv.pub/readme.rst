@@ -8,6 +8,13 @@ Deploy nexus service
 
 .. contents:: Catalog
 
+.. |alvin_logo| image:: https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png
+ :width: 60px
+
+
+
+|alvin_logo|
+
 Install java
 ``````````````
 
