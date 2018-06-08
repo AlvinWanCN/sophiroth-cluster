@@ -6,7 +6,7 @@ Deploy nexus service
 
 .. _alvin wan: https://github.com/alvinwancn
 
-.. contents:: Catalog
+.. contents::
 
 .. |alvin_logo| image:: https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png
  :width: 60px
