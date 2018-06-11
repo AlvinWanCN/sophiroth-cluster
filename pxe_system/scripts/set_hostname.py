@@ -30,8 +30,8 @@ hostDict['neutron-computer1']=makeAlvHost('neutron-computer1','82')
 hostDict['cinder-storage1']=makeAlvHost('cinder_storage1','83')
 hostDict['cinder-control1']=makeAlvHost('cinder_control1','84')
 hostDict['nexus']=makeAlvHost('nexus','85')
-
-
+hostDict['redis']=makeAlvHost('redis','86')
+hostDict['memcached']=makeAlvHost('memcached','87')
 
 
 
