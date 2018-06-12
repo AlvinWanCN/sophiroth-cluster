@@ -2,9 +2,12 @@
 samba service
 ###############
 
+.. contents::
+
+Service State : disabled
 
 Install Samba service
-----------------------
+--------------------------
 
 .. code-block:: bash
 
