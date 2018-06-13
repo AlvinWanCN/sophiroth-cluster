@@ -20,6 +20,7 @@ mysql docker container
 ````````````````````````````````
 
 这里我们设置mysql服务的root的密码为sophiroth
+
 .. code-block:: bash
 
     docker run -d -it --name mysql -v /mysqldata/:/var/lib/mysql -v /etc/localtime:/etc/localtime -e MYSQL_ROOT_PASSWORD=sophiroth -p 3306:3306 mysql:5.6
