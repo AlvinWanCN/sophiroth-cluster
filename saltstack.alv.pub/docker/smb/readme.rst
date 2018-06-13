@@ -29,8 +29,8 @@ smb container
     RUN echo 'writable = yes' >> /etc/samba/smb.conf
     RUN echo 'guest ok = yes' >> /etc/samba/smb.conf
     RUN sed -i 's/security = user/security = share/' /etc/samba/smb.conf
-    RUN echo -e "[hr]\nsecurity = user\npath = /user1\nbrowseable = no\nwritable = yes\nvalid users = user1" >> /etc/samba/smb.conf
-    RUN echo -e "[hr]\nsecurity = user\npath = /user2data\nbrowseable = no\nwritable = yes\nvalid users = user2" >> /etc/samba/smb.conf
+    RUN echo -e "[user1]\nsecurity = user\npath = /user1\nbrowseable = no\nwritable = yes\nvalid users = user1" >> /etc/samba/smb.conf
+    RUN echo -e "[user2]\nsecurity = user\npath = /user2\nbrowseable = no\nwritable = yes\nvalid users = user2" >> /etc/samba/smb.conf
     ADD smb.sh /smb.sh
     #ENTRYPOINT ["/smb.sh"]
     ENTRYPOINT /etc/init.d/smb start &&  /bin/bash
@@ -72,4 +72,6 @@ smb container
 windows客户端访问
 --------------------
 
- 资源管理器地址栏输入\\saltstack.alv.pub\user1 输入y用户名user1，密码sophiroth， 会访问到容器里面的user1的home目录
+ 资源管理器地址栏输入\\saltstack.alv.pub\user1 输入用户名user1，密码sophiroth， 会访问到容器里面的user1的home目录
+
+  资源管理器地址栏输入\\saltstack.alv.pub\user2 输入用户名user2，密码sophiroth， 会访问到容器里面的user2的home目录
