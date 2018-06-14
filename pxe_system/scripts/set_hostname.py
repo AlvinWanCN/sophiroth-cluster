@@ -32,6 +32,7 @@ hostDict['cinder-control1']=makeAlvHost('cinder_control1','84')
 hostDict['nexus']=makeAlvHost('nexus','85')
 hostDict['redis']=makeAlvHost('redis','86')
 hostDict['memcached']=makeAlvHost('memcached','87')
+hostDict['controller']=makeAlvHost('controller','88')
 
 
 
