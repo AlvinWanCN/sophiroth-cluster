@@ -60,7 +60,7 @@ echo '
 #
 [neutron]
 url = http://neutron.alv.pub:9696
-auth_url = http://keystone1.alv.pub:35357
+auth_url = http://controller.alv.pub:35357
 auth_type = password
 project_domain_name = default
 user_domain_name = default
@@ -119,9 +119,9 @@ notify_nova_on_port_status_changes = true
 notify_nova_on_port_data_changes = true
 
 [keystone_authtoken]
-auth_uri = http://keystone1.alv.pub:5000
-auth_url = http://keystone1.alv.pub:35357
-memcached_servers = keystone1.alv.pub:11211
+auth_uri = http://controller.alv.pub:5000
+auth_url = http://controller.alv.pub:35357
+memcached_servers = controller.alv.pub:11211
 auth_type = password
 project_domain_name = default
 user_domain_name = default
@@ -130,7 +130,7 @@ username = neutron
 password = neutron
 
 [nova]
-auth_url = http://keystone1.alv.pub:35357
+auth_url = http://controller.alv.pub:35357
 auth_type = password
 project_domain_id = default
 user_domain_id = default
@@ -190,10 +190,3 @@ openstack network agent list
 ```
 
 
-# Deploy Neutron Compute node
-
-## Install Software
-
-```
-
-```

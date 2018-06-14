@@ -34,7 +34,7 @@ echo "使用 $Kvm"
 ```
 
 ```
-VncProxy=192.168.127.79 #VNC代理外网IP地址
+VncProxy=192.168.127.88 #VNC代理外网IP地址
 
 ```
 
@@ -48,7 +48,7 @@ echo '#
 instances_path='$VHD'
 enabled_apis = osapi_compute,metadata
 transport_url = rabbit://openstack:openstack@rabbitmq1.alv.pub
-my_ip = 192.168.127.79
+my_ip = 192.168.127.88
 use_neutron = True
 firewall_driver = nova.virt.firewall.NoopFirewallDriver
 
@@ -60,9 +60,9 @@ connection = mysql+pymysql://nova:nova@maxscale.alv.pub:4006/nova
 [api]
 auth_strategy = keystone
 [keystone_authtoken]
-auth_uri = http://keystone1.alv.pub:5000
-auth_url = http://keystone1.alv.pub:35357
-memcached_servers = keystone1.alv.pub:11211
+auth_uri = http://controller.alv.pub:5000
+auth_url = http://controller.alv.pub:35357
+memcached_servers = controller.alv.pub:11211
 auth_type = password
 project_domain_name = default
 user_domain_name = default
@@ -76,7 +76,7 @@ vncserver_listen = 0.0.0.0
 vncserver_proxyclient_address = $my_ip
 novncproxy_base_url = http://'$VncProxy':6080/vnc_auto.html
 [glance]
-api_servers = http://glance.alv.pub:9292
+api_servers = http://controller.alv.pub:9292
 [oslo_concurrency]
 lock_path = /var/lib/nova/tmp
 
@@ -86,12 +86,17 @@ project_domain_name = Default
 project_name = service
 auth_type = password
 user_domain_name = Default
-auth_url = http://keystone1.alv.pub:35357/v3
+auth_url = http://controller.alv.pub:35357/v3
 username = placement
 password = placement
 
 [libvirt]
 virt_type = '$Kvm'
 #'>/etc/nova/nova.conf
-#sed -i 's#nova1.alv.pub:6080#192.168.127.79:6080#' /etc/nova/nova.conf
+#sed -i 's#nova1.alv.pub:6080#192.168.127.88:6080#' /etc/nova/nova.conf
 ```
+
+
+#启动
+systemctl enable libvirtd.service openstack-nova-compute.service
+systemctl restart libvirtd.service openstack-nova-compute.service
