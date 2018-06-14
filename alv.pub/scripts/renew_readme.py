@@ -41,9 +41,10 @@ def get_min_temperature():  # 获取最低气温
         return "unknow"
 
 WORK_DIR='/home/alvin/Travel-Notes/'
-
 os.chdir(WORK_DIR)
+YearMonth=time.strftime('%Y/%B')
 subprocess.call('git pull',shell=True)
+subprocess.call('mkdir -p %s'%WORK_DIR+YearMonth,shell=True)
 topic = time.strftime('%d %B %Y Alvin\'s Daily')
 
 template = """
@@ -111,5 +112,5 @@ readme=open('readme.rst','w')
 readme.write(template)
 readme.close()
 
-subprocess.call('git commit "renew readme.rst" readme.rst',shell=True)
+subprocess.call('git commit -m "renew readme.rst" readme.rst',shell=True)
 subprocess.call('git push origin master',shell=True)
