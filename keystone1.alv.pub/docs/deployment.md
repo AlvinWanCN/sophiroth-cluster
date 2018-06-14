@@ -162,5 +162,7 @@ export OS_IMAGE_API_VERSION=2
 ### 测试脚本是否生效
 ```
 source ./demo-openstack.sh
+yum install python-openstackclient openstack-selinux python2-PyMySQL -y #OpenStack客户端
+openstack token issue
 openstack token issue
 ```

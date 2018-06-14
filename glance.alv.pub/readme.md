@@ -119,4 +119,14 @@ wget http://download.cirros-cloud.net/0.3.5/cirros-0.3.5-x86_64-disk.img #下载
 ```
 source ./admin-openstack.sh
 
+openstack image create "cirros" \
+  --file cirros-0.3.5-x86_64-disk.img \
+  --disk-format qcow2 --container-format bare \
+  --public
+#检查是否上传成功
+openstack image list
+#glance image-list
+ls $Imgdir
+
+#删除镜像 glance image-delete 镜像id
 ```

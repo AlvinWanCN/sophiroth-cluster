@@ -38,7 +38,7 @@ cinder-control1 A 192.168.127.84
 nexus   A   192.168.127.85
 redis A 192.168.127.86
 memcached A 192.168.127.87
-controller A 192.168.127.87
+controller A 192.168.127.88
 c1      A       192.168.1.131
 c2      A       192.168.1.132
 c3      A       192.168.1.133
