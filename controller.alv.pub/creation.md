@@ -41,7 +41,7 @@ openstack network create --share --external --provider-physical-network provider
 ### 创建子网
 
 ```
-openstack subnet create --network lan_$IPS --allocation-pool start=$IPS.130,end=$IPS.200  --dns-nameserver 47.75.0.56 --gateway $IPS.254 --subnet-range $IPS.0/24 net_$IPS
+openstack subnet create --network lan_$IPS --allocation-pool start=$IPS.130,end=$IPS.200  --dns-nameserver 192.168.127.3 --gateway $IPS.254 --subnet-range $IPS.0/24 net_$IPS
 ```
 
 

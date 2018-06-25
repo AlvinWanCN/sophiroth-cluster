@@ -135,17 +135,17 @@ echo '
 auth_strategy = keystone
 log_dir = /var/log/cinder
 state_path = /var/lib/cinder
-glance_api_servers = http://glance.alv.pub:9292
+glance_api_servers = http://controller.alv.pub:9292
 transport_url = rabbit://openstack:openstack@rabbitmq1.alv.pub
 enabled_backends = lvm,nfs
 
 [database]
-connection = mysql+pymysql://cinder:cinder@maxscale.alv.pub/cinder
+connection = mysql+pymysql://cinder:cinder@maxscale.alv.pub:4006/cinder
 
 [keystone_authtoken]
-auth_uri = http://keystone1.alv.pub:5000
-auth_url = http://keystone1.alv.pub:35357
-memcached_servers = keystone1.alv.pub:11211
+auth_uri = http://controller.alv.pub:5000
+auth_url = http://controller.alv.pub:35357
+memcached_servers = controller.alv.pub:11211
 auth_type = password
 project_domain_name = default
 user_domain_name = default
@@ -180,3 +180,5 @@ chgrp cinder /etc/cinder/cinder.conf
 ```
 
 ## #启动Cinder卷服务
+systemctl enable openstack-cinder-volume.service target.service
+systemctl start openstack-cinder-volume.service target.service
