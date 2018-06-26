@@ -341,7 +341,8 @@ Install Glance
 
 .. code-block:: bash
 
-    wget http://download.cirros-cloud.net/0.3.5/cirros-0.3.5-x86_64-disk.img #下载测试镜像源
+    #wget http://download.cirros-cloud.net/0.3.5/cirros-0.3.5-x86_64-disk.img #下载测试镜像源
+    wget http://dc.alv.pub/openstack_pick_centos7/cirros-0.3.5-x86_64-disk.img
 
 
 使用qcow2磁盘格式，bare容器格式,上传镜像到镜像服务并设置公共可见
