@@ -5,6 +5,13 @@ controller.alv.pub
 
 .. contents::
 
+
+参考资料
+````````````````````
+
+url: https://www.cnblogs.com/elvi/p/7613861.html
+
+
 添加openstack的仓库
 ```````````````````````
 .. code-block:: bash
@@ -45,15 +52,19 @@ controller.alv.pub
     select user,host from mysql.user;
     show databases;
 
-Keystone安装
-```````````````````
+Keystone安装配置
+`````````````````````````
+
+安装keystone
+-------------------
+
 .. code-block:: bash
 
     yum install -y openstack-keystone httpd mod_wsgi memcached python-memcached
     yum install apr apr-util -y
 
 memcached启动和设置
-```````````````````
+-----------------------
 .. code-block:: bash
 
     cp /etc/sysconfig/memcached{,.bak}
@@ -64,7 +75,7 @@ memcached启动和设置
 
 
 Keystone 配置
-```````````````````
+-----------------------
 
 .. code-block:: bash
 
@@ -87,20 +98,22 @@ Keystone 配置
 
 
 
-## 初始化身份认证服务的数据库
+初始化身份认证服务的数据库
+-----------------------
 
 .. code-block:: bash
 
     su -s /bin/sh -c "keystone-manage db_sync" keystone
 
 
-### 检查表是否创建成功
+ 检查表是否创建成功
 .. code-block:: bash
 
     mysql -ukeystone -pkeystone -hmaxscale.alv.pub -P4006 -e "use keystone;show tables;"
 
 
-## 初始化密钥存储库
+初始化密钥存储库
+-----------------------
 
 .. code-block:: bash
 
@@ -108,7 +121,8 @@ Keystone 配置
     keystone-manage credential_setup --keystone-user keystone --keystone-group keystone
 
 
-## 设置admin用户（管理用户）和密码
+设置admin用户（管理用户）和密码
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -119,7 +133,8 @@ Keystone 配置
       --bootstrap-region-id RegionOne
 
 
-## apache配置
+apache配置
+-----------------------
 
 .. code-block:: bash
 
@@ -128,7 +143,8 @@ Keystone 配置
     ln -s /usr/share/keystone/wsgi-keystone.conf /etc/httpd/conf.d/
 
 Apache HTTP 启动并设置开机自启动
-```````````````````````````````````
+----------------------------------------------
+
 .. code-block:: bash
 
     systemctl enable httpd.service
@@ -136,9 +152,9 @@ Apache HTTP 启动并设置开机自启动
     netstat -antp|egrep ':5000|:35357|:80'
 
 
-## 创建 OpenStack 客户端环境脚本
+创建 OpenStack 客户端环境脚本
+----------------------------------------------
 
-以下操作是在openstack客户端做的，这里我们是在horizon.alv.pub上做的。
 
 .. code-block:: bash
 
@@ -154,7 +170,8 @@ Apache HTTP 启动并设置开机自启动
     ">./admin-openstack.sh
 
 
-### 测试脚本是否生效
+测试脚本是否生效
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -162,9 +179,11 @@ Apache HTTP 启动并设置开机自启动
     yum install python-openstackclient openstack-selinux python2-PyMySQL -y #OpenStack客户端
     yum install openstack-utils -y #openstack工具
     openstack token issue
-```
 
-### 创建service项目,创建glance,nova,neutron用户，并授权
+
+创建service项目,创建glance,nova,neutron用户，并授权
+---------------------------------------------------------------------
+
 .. code-block:: bash
 
     openstack project create --domain default --description "Service Project" service
@@ -177,6 +196,7 @@ Apache HTTP 启动并设置开机自启动
 
 
 创建demo项目(普通用户密码及角色)
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -186,7 +206,8 @@ Apache HTTP 启动并设置开机自启动
     openstack role add --project demo --user demo user
 
 
-### demo环境脚本
+demo环境脚本
+-----------------------
 
 .. code-block:: bash
 
@@ -202,7 +223,8 @@ Apache HTTP 启动并设置开机自启动
     ">./demo-openstack.sh
 
 
-### 测试脚本是否生效
+测试脚本是否生效
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -211,15 +233,14 @@ Apache HTTP 启动并设置开机自启动
 
 
 安装配置glance
-```````````````````
+``````````````````````````
 
 
 
-## 创建Glance数据库、用户、认证，前面已设置
+创建Glance数据库、用户、认证，前面已设置
+---------------------------------------------------------------------
 
-```
-
-## keystone上服务注册 ,创建glance服务实体,API端点（公有、私有、admin）
+ keystone上服务注册 ,创建glance服务实体,API端点（公有、私有、admin）
 
 .. code-block:: bash
 
@@ -229,10 +250,9 @@ Apache HTTP 启动并设置开机自启动
     openstack endpoint create --region RegionOne image internal http://controller.alv.pub:9292
     openstack endpoint create --region RegionOne image admin http://controller.alv.pub:9292
 
-```
 
-## Install Glance
-回到controller.alv.pub上操作。
+Install Glance
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -240,7 +260,8 @@ Apache HTTP 启动并设置开机自启动
     yum install openstack-glance python-glance python-memcached -y
 
 
-## 配置
+配置Glance
+-----------------------
 
 .. code-block:: bash
 
@@ -248,7 +269,7 @@ Apache HTTP 启动并设置开机自启动
     cp /etc/glance/glance-registry.conf{,.bak}
 
 
-#images默认/var/lib/glance/images/
+ images默认/var/lib/glance/images/
 
 .. code-block:: bash
 
@@ -297,16 +318,16 @@ Apache HTTP 启动并设置开机自启动
     #">/etc/glance/glance-registry.conf
 
 
-## 同步数据库,检查数据库
-
+同步数据库,检查数据库
+----------------------------------------------
 .. code-block:: bash
 
     su -s /bin/sh -c "glance-manage db_sync" glance
     mysql -h maxscale.alv.pub -u glance -pglance -P4006 -e "use glance;show tables;"
 
 
-## 启动服务并设置开机自启动
-
+启动服务并设置开机自启动
+----------------------------------------------
 .. code-block:: bash
 
     systemctl enable openstack-glance-api openstack-glance-registry
@@ -315,14 +336,16 @@ Apache HTTP 启动并设置开机自启动
     netstat -antp|egrep '9292|9191' #检测服务端口
 
 
-## 镜像测试,下载有时很慢
+镜像测试,下载有时很慢
+----------------------------------------------
 
 .. code-block:: bash
 
     wget http://download.cirros-cloud.net/0.3.5/cirros-0.3.5-x86_64-disk.img #下载测试镜像源
 
 
-#使用qcow2磁盘格式，bare容器格式,上传镜像到镜像服务并设置公共可见
+使用qcow2磁盘格式，bare容器格式,上传镜像到镜像服务并设置公共可见
+---------------------------------------------------------------------
 
 .. code-block:: bash
 
@@ -333,7 +356,8 @@ Apache HTTP 启动并设置开机自启动
       --disk-format qcow2 --container-format bare \
       --public
 
-#检查是否上传成功
+检查是否上传成功
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -341,18 +365,14 @@ Apache HTTP 启动并设置开机自启动
     #glance image-list
     ls $Imgdir
 
-#删除镜像 glance image-delete 镜像id
+ #删除镜像 glance image-delete 镜像id
 
 
 nova控制节点
 `````````````````
 
-## 创建Nova数据库、用户、认证，
+ 创建Nova数据库、用户、认证，
 
-## keystone上服务注册 ,创建nova用户、服务、API
-以下操作在openstack客户端执行，这里我们在horizon.alv.pub上执行
-
-#nova用户前面已建,在安装好keystone的时候创建的。
 
 .. code-block:: bash
 
@@ -363,7 +383,7 @@ nova控制节点
     openstack endpoint create --region RegionOne compute admin http://controller.alv.pub:8774/v2.1
 
 
-### 创建placement用户、服务、API
+ 创建placement用户、服务、API
 
 .. code-block:: bash
 
@@ -376,7 +396,8 @@ nova控制节点
     #openstack endpoint delete id?
 
 
-## 安装nova控制节点
+安装nova控制节点
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -385,7 +406,8 @@ nova控制节点
       openstack-nova-scheduler openstack-nova-placement-api
 
 
-## nova控制节点配置
+nova控制节点配置
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -462,7 +484,8 @@ nova控制节点
     systemctl restart httpd
 
 
-## 同步数据库
+同步数据库
+-----------------------
 
 .. code-block:: bash
 
@@ -473,7 +496,7 @@ nova控制节点
     su -s /bin/sh -c "nova-manage db sync" nova
 
 
-## 检测数据
+ 检测数据
 
 .. code-block:: bash
 
@@ -484,17 +507,18 @@ nova控制节点
     mysql -h maxscale.alv.pub -u nova -pnova -P4006 -e "use nova;show tables;"
     mysql -h maxscale.alv.pub -u nova -pnova -P4006 -e "use nova_cell0;show tables;"
 
-## 开机自启动
+开机自启动
+-----------------------
 
 .. code-block:: bash
-
 
     systemctl enable openstack-nova-api.service \
     openstack-nova-consoleauth.service openstack-nova-scheduler.service \
     openstack-nova-conductor.service openstack-nova-novncproxy.service
 
 
-## 启动服务
+启动服务
+-----------------------
 
 .. code-block:: bash
 
@@ -502,7 +526,8 @@ nova控制节点
       openstack-nova-consoleauth.service openstack-nova-scheduler.service \
       openstack-nova-conductor.service openstack-nova-novncproxy.service
 
-## 查看节点
+查看节点
+-----------------------
 
 .. code-block:: bash
 
@@ -511,18 +536,20 @@ nova控制节点
     nova-status upgrade check
     openstack compute service list
 
-# Neutron Deployment
+Neutron Deployment
+```````````````````````````
 
-#本实例网络配置方式是：公共网络
+ 本实例网络配置方式是：公共网络
 
-#官方参考 https://docs.openstack.org/neutron/pike/install/controller-install-rdo.html
+ 官方参考 https://docs.openstack.org/neutron/pike/install/controller-install-rdo.html
 
-## 创建Neutron数据库、用户认证，前面已设置
+ 创建Neutron数据库、用户认证，前面已设置
 
 
 
-## 创建Neutron服务实体,API端点
-这里我们在openstack客户端做以下配置，这里我们在horizon.alv.pub配置这些。
+
+创建Neutron服务实体,API端点
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -532,7 +559,8 @@ nova控制节点
     openstack endpoint create --region RegionOne network admin http://controller.alv.pub:9696
 
 
-## 安装软件
+安装软件
+-----------------------
 
 .. code-block:: bash
 
@@ -542,9 +570,9 @@ nova控制节点
     yum install -y openstack-neutron openstack-neutron-ml2 \
     openstack-neutron-linuxbridge python-neutronclient ebtables ipset
 
+Neutron 备份配置
+-----------------------
 
-
-## Neutron 备份配置
 .. code-block:: bash
 
     cp /etc/neutron/neutron.conf{,.bak2}
@@ -555,7 +583,7 @@ nova控制节点
     cp /etc/neutron/metadata_agent.ini{,.bak}
     cp /etc/neutron/l3_agent.ini{,.bak}
 
-## 配置
+ 配置
 
 .. code-block:: bash
 
@@ -676,13 +704,14 @@ nova控制节点
     #'>/etc/neutron/l3_agent.ini
 
 
-## 同步数据库
+同步数据库
+-----------------------
 
 .. code-block:: bash
 
     su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
 
-## 检测数据
+ 检测数据
 
 .. code-block:: bash
 
@@ -690,7 +719,8 @@ nova控制节点
 
 
 
-## 重启相关服务
+重启相关服务
+-----------------------
 
 .. code-block:: bash
 
@@ -698,7 +728,8 @@ nova控制节点
 
 
 
-## 启动neutron
+启动neutron
+-----------------------
 
 .. code-block:: bash
 
@@ -711,7 +742,7 @@ nova控制节点
     echo "查看网络,正常是：控制节点3个ID"
 
 
-openstack 客户端执行
+ openstack 客户端执行
 
 .. code-block:: bash
 
@@ -723,16 +754,19 @@ openstack 客户端执行
 
 
 
-## 安装配置horizon
+安装配置horizon
+```````````````````````````
 
-### 安装软件
+安装软件
+-----------------------
 
 .. code-block:: bash
 
     yum install openstack-dashboard python-memcached -y
 
 
-### 配置
+配置
+-----------------------
 
 .. code-block:: bash
 
@@ -764,40 +798,32 @@ openstack 客户端执行
     }
     #'>>$Setfiles
 
-####登录界面域
-设置为默认域，default， 进行该设置后，登录页面不再有domain输入框
+登录界面域
+-----------------------
+
+ 设置为默认域，default， 进行该设置后，登录页面不再有domain输入框
+
 .. code-block:: bash
 
     sed -i '/MULTIDOMAIN_SUPPORT/cOPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False' /etc/openstack-dashboard/local_settings
-
 
 .. code-block:: bash
 
     systemctl enable httpd
     systemctl restart httpd
 
+cinder块存储控制节点
+`````````````````````````````
+
+ #存储节点安装配置cinder-volume服务
+ #控制节点安装配置cinder-api、cinder-scheduler服务
 
 
 
 
-
-
-
-
-
-
-
-
-# cinder块存储控制节点
-
-#存储节点安装配置cinder-volume服务
-#控制节点安装配置cinder-api、cinder-scheduler服务
-
-
-
-
-### keystone创建cinder用户、服务、API
-以下操纵在openstack客户端做，这里我们是在horizon.alv.pub上执行的。
+keystone创建cinder用户、服务、API
+----------------------------------------------
+ #以下操纵在openstack客户端做，这里我们是在horizon.alv.pub上执行的。
 
 .. code-block:: bash
 
@@ -816,7 +842,8 @@ openstack 客户端执行
 
 
 
-### 安装软件并备份配置文件
+安装软件并备份配置文件
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -826,12 +853,14 @@ openstack 客户端执行
 
 
 
-### 创建数据库和用户
-该操作我们是在maxscale.alv.pub:4006 数据库里做的。
+创建数据库和用户
+----------------------------------------------
+ 该操作我们是在maxscale.alv.pub:4006 数据库里做的。
 
 
 
-### 配置cinder
+配置cinder
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -862,8 +891,8 @@ openstack 客户端执行
     '>/etc/cinder/cinder.conf
 
 
-### 在nova控制节点添加配置
-
+在nova控制节点添加配置
+----------------------------------------------
 
 .. code-block:: bash
 
@@ -873,13 +902,15 @@ openstack 客户端执行
     '>>/etc/nova/nova.conf
 
 
-然后重启服务
+重启服务
+-----------------------
 
 .. code-block:: bash
 
     systemctl restart openstack-nova-api.service
 
-### 初始化数据
+初始化数据
+-----------------------
 
 .. code-block:: bash
 
@@ -887,7 +918,8 @@ openstack 客户端执行
     mysql -hmaxscale -u cinder -pcinder -P4006 -e "use cinder;show tables;" #检测
 
 
-### 启动cinder服务
+启动cinder服务
+-----------------------
 
 .. code-block:: bash
 
