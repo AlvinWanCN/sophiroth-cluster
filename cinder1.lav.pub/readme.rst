@@ -36,26 +36,17 @@ cinder 块存储
     echo -e 'n\np\n1\n\n+30G\nw' | fdisk /dev/sdb
     echo -e 'n\np\n2\n\n+30G\nw' | fdisk /dev/sdb
 
-=
+
 
 查看一下。
+
 .. code-block:: bash
 
-    [root@cinder1 ~]# fdisk -l /dev/sdb
-
-    Disk /dev/sdb: 322.1 GB, 322122547200 bytes, 629145600 sectors
-    Units = sectors of 1 * 512 = 512 bytes
-    Sector size (logical/physical): 512 bytes / 512 bytes
-    I/O size (minimum/optimal): 512 bytes / 512 bytes
-    Disk label type: dos
-    Disk identifier: 0x1d3e73ea
-
-       Device Boot      Start         End      Blocks   Id  System
-    /dev/sdb1            2048    62916607    31457280   83  Linux
-    /dev/sdb2        62916608   125831167    31457280   83  Linux
+    fdisk -l /dev/sdb
 
 
-### 格式化分区
+格式化分区
+````````````````
 .. code-block:: bash
 
     mkfs.ext4 /dev/sdb1
@@ -67,15 +58,16 @@ cinder 块存储
     df -h|grep /dev/sdb1
 
 
-### 开机挂载磁盘
-
+开机挂载磁盘
+``````````````````
 .. code-block:: bash
 
     echo "mount -t ext4 /dev/sdb1 /data" >>/etc/rc.d/rc.local
     tail -1 /etc/rc.d/rc.local
     chmod +x /etc/rc.d/rc.local
 
-## 安装配置LVM，作为后端存储使用
+安装配置LVM，作为后端存储使用
+``````````````````````````````````
 
 .. code-block:: bash
 
@@ -88,7 +80,8 @@ cinder 块存储
     vgdisplay #查看vg
 
 
-## 安装配置NFS服务，作为后端存储使用
+安装配置NFS服务，作为后端存储使用
+````````````````````````````````````````
 
 .. code-block:: bash
 
@@ -104,16 +97,17 @@ cinder 块存储
     systemctl restart rpcbind nfs-server
     showmount -e localhost
 
-## 安装配置Cinder
 
-### 添加openstack的仓库
+添加openstack的仓库
+```````````````````````````````
 
 .. code-block:: bash
 
     curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
 
 
-### 安装配置Cinder
+安装配置Cinder
+`````````````````````
 
 .. code-block:: bash
 
@@ -121,24 +115,28 @@ cinder 块存储
     cp /etc/cinder/cinder.conf{,.bak}
     cp /etc/lvm/lvm.conf{,.bak}
 
-### 配置LVM过滤，只接收上面配置的lvm设备/dev/sdb2
+配置LVM过滤，只接收上面配置的lvm设备/dev/sdb2
+`````````````````````````````````````````````````````
 
+ 在devices {  }部分添加 filter = [ "a/sdb2/", "r/.*/"]
 
-#在devices {  }部分添加 filter = [ "a/sdb2/", "r/.*/"]
 .. code-block:: bash
 
     sed -i '141a filter = [ "a/sdb2/", "r/.*/"]' /etc/lvm/lvm.conf  #在141行后添加
 
 
 
-### NFS
+NFS
+```````````````````
 .. code-block:: bash
 
     echo 'cinder1.alv.pub:/data/cinder_nfs1'>/etc/cinder/nfs_shares
     chmod 640 /etc/cinder/nfs_shares
     chown root:cinder /etc/cinder/nfs_shares
 
-### 配置cinder
+配置cinder
+```````````````````````
+
 .. code-block:: bash
 
     echo '
@@ -188,8 +186,8 @@ cinder 块存储
     chmod 640 /etc/cinder/cinder.conf
     chgrp cinder /etc/cinder/cinder.conf
 
-## #启动Cinder卷服务
-
+启动Cinder卷服务
+````````````````````````````
 .. code-block:: bash
 
     systemctl enable openstack-cinder-volume.service target.service
