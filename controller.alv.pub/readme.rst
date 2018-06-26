@@ -132,7 +132,7 @@ netstat -antp|egrep ':5000|:35357|:80'
 
 以下操作是在openstack客户端做的，这里我们是在horizon.alv.pub上做的。
 
-```
+
 echo "
 export OS_PROJECT_DOMAIN_NAME=default
 export OS_USER_DOMAIN_NAME=default
@@ -143,11 +143,12 @@ export OS_AUTH_URL=http://controller.alv.pub:35357/v3
 export OS_IDENTITY_API_VERSION=3
 export OS_IMAGE_API_VERSION=2
 ">./admin-openstack.sh
-```
+
 
 ### 测试脚本是否生效
 
 ```
+
 source ./admin-openstack.sh
 yum install python-openstackclient openstack-selinux python2-PyMySQL -y #OpenStack客户端
 yum install openstack-utils -y #openstack工具
@@ -166,14 +167,14 @@ openstack user create --domain default --password=neutron neutron
 openstack role add --project service --user neutron admin
 ```
 
-### 创建demo项目(普通用户密码及角色)
+创建demo项目(普通用户密码及角色)
 
-```
+
 openstack project create --domain default --description "Demo Project" demo
 openstack user create --domain default --password=demo demo
 openstack role create user
 openstack role add --project demo --user demo user
-```
+
 
 ### demo环境脚本
 
@@ -212,9 +213,6 @@ grant all privileges on glance.* to 'glance'@'%' identified by 'glance';
 
 ## keystone上服务注册 ,创建glance服务实体,API端点（公有、私有、admin）
 
-这个操作在openstack客户端做。
-这里我是在horizon.alv.pub上做的下面操作。
-```
 source ./admin-openstack.sh || { echo "加载前面设置的admin-openstack.sh环境变量脚本";exit; }
 openstack service create --name glance --description "OpenStack Image" image
 openstack endpoint create --region RegionOne image public http://controller.alv.pub:9292
@@ -463,30 +461,27 @@ su -s /bin/sh -c "nova-manage db sync" nova
 
 ## 检测数据
 
-```
-nova-manage cell_v2 list_cells
-```
 
-```
+nova-manage cell_v2 list_cells
+
 mysql -h maxscale.alv.pub -u nova -pnova -P4006 -e "use nova_api;show tables;"
 mysql -h maxscale.alv.pub -u nova -pnova -P4006 -e "use nova;show tables;"
 mysql -h maxscale.alv.pub -u nova -pnova -P4006 -e "use nova_cell0;show tables;"
 ```
 
 ## 开机自启动
-```
+
  systemctl enable openstack-nova-api.service \
   openstack-nova-consoleauth.service openstack-nova-scheduler.service \
   openstack-nova-conductor.service openstack-nova-novncproxy.service
-```
+
 
 ## 启动服务
 
-```
+
 systemctl start openstack-nova-api.service \
   openstack-nova-consoleauth.service openstack-nova-scheduler.service \
   openstack-nova-conductor.service openstack-nova-novncproxy.service
-```
 
 ## 查看节点
 
@@ -534,9 +529,9 @@ openstack endpoint create --region RegionOne network admin http://controller.alv
 ## 安装软件
 
 ```
-wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-yum install centos-release-openstack-pike -y #安装OpenStack库
-sed -i 's/\$contentdir/centos-7/' /etc/yum.repos.d/CentOS-QEMU-EV.repo
+#wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+#yum install centos-release-openstack-pike -y #安装OpenStack库
+#sed -i 's/\$contentdir/centos-7/' /etc/yum.repos.d/CentOS-QEMU-EV.repo
 yum install -y openstack-neutron openstack-neutron-ml2 \
 openstack-neutron-linuxbridge python-neutronclient ebtables ipset
 ```
@@ -669,7 +664,7 @@ mysql -h maxscale.alv.pub -P4006 -u neutron -pneutron -e "use neutron;show table
 ```
 
 ## 重启相关服务
-在nova1.alv.pub上执行
+
 
 ```
 systemctl restart openstack-nova-api.service

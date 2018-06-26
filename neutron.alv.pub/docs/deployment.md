@@ -30,9 +30,10 @@ openstack endpoint create --region RegionOne network admin http://neutron.alv.pu
 ## 安装软件
 
 ```
-wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-yum install centos-release-openstack-pike -y #安装OpenStack库
-sed -i 's/\$contentdir/centos-7/' /etc/yum.repos.d/CentOS-QEMU-EV.repo
+#wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+#yum install centos-release-openstack-pike -y #安装OpenStack库
+#sed -i 's/\$contentdir/centos-7/' /etc/yum.repos.d/CentOS-QEMU-EV.repo
+curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
 yum install -y openstack-neutron openstack-neutron-ml2 \
 openstack-neutron-linuxbridge python-neutronclient ebtables ipset
 ```
@@ -165,7 +166,7 @@ mysql -h maxscale.alv.pub -P4006 -u neutron -pneutron -e "use neutron;show table
 ```
 
 ## 重启相关服务
-在nova1.alv.pub上执行
+在controller.alv.pub上执行
 
 ```
 systemctl restart openstack-nova-api.service

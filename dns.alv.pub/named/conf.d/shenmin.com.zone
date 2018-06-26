@@ -8,14 +8,14 @@ shenmin.com     IN SOA  shenmin.com. root.shenmin.com.zone. (
                 10800      ; minimum (3 hours)
                 )
             NS  shenmin.com.
-            A   47.75.0.56
+            A   47.75.67.142
 $ORIGIN shenmin.com.
 bi          A   192.168.1.218
 cms         A   192.168.1.219
 i           A   192.168.1.219
 jenkins         A   192.168.1.205
 nagios          A   192.168.1.208
-natasha         A   47.75.0.56
+natasha         A   47.75.67.142
 sd          A   192.168.1.211
 svn         A   192.168.1.207
 test1           A   192.168.1.211
