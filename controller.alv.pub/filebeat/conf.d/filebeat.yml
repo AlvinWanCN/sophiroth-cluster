@@ -2,8 +2,7 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /var/log/neutron/server.log
-    - /var/log/neutron/linuxbridge-agent.log
+    - /var/log/neutron/*
     - /var/log/httpd/error_log
     - /var/log/glance/api.log
     - /var/log/keystone/keystone.log
@@ -11,6 +10,9 @@ filebeat.inputs:
     - /var/log/nova/nova-placement-api.log
     - /var/log/nova/nova-consoleauth.log
     - /var/log/nova/nova-scheduler.log
+    - /var/log/cinder/api.log
+    - /var/log/cinder/scheduler.log
+
   multiline.pattern:  '^\t|Exception|more|^$|^Caused|Error|^[[:space:]]org|ERROR|WARNING'
   multiline.negate: false
   multiline.match: after

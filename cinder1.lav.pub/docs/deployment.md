@@ -12,7 +12,7 @@
 
 这里我们添加了一块300G的硬盘sdb
 ```
-[root@cinder-storage1 ~]# lsblk
+[root@cinder1 ~]# lsblk
 NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 sda                   8:0    0   20G  0 disk
 ├─sda1                8:1    0  500M  0 part /boot
@@ -35,7 +35,7 @@ echo -e 'n\np\n2\n\n+30G\nw' | fdisk /dev/sdb
 
 查看一下。
 ```
-[root@cinder-storage1 ~]# fdisk -l /dev/sdb
+[root@cinder1 ~]# fdisk -l /dev/sdb
 
 Disk /dev/sdb: 322.1 GB, 322122547200 bytes, 629145600 sectors
 Units = sectors of 1 * 512 = 512 bytes
@@ -123,7 +123,7 @@ sed -i '141a filter = [ "a/sdb2/", "r/.*/"]' /etc/lvm/lvm.conf  #在141行后添
 
 ### NFS
 ```
-echo 'cinder-storage1.alv.pub:/data/cinder_nfs1'>/etc/cinder/nfs_shares
+echo 'cinder1.alv.pub:/data/cinder_nfs1'>/etc/cinder/nfs_shares
 chmod 640 /etc/cinder/nfs_shares
 chown root:cinder /etc/cinder/nfs_shares
 ```

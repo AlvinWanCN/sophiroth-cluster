@@ -14,7 +14,7 @@ Install filebeat
 Configure filbeat
 `````````````````````````
 
-    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/controller.alv.pub/filebeat/conf.d/filebeat.yml > /etc/filebeat/filebeat.yml
+    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/nova1.alv.pub/filebeat/conf.d/filebeat.yml > /etc/filebeat/filebeat.yml
 
 Startup filebeat
 

@@ -1,9 +1,9 @@
-
 filebeat.inputs:
 - type: log
   enabled: true
   paths:
     - /var/log/nova/nova-compute.log
+    - /var/log/neutron/linuxbridge-agent.log
   multiline.pattern:  '^\t|Exception|more|^$|^Caused|Error|^[[:space:]]org|ERROR|WARNING'
   multiline.negate: false
   multiline.match: after
