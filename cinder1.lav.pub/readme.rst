@@ -33,8 +33,8 @@ cinder 块存储
  fdisk快速分区,新建2个30G分区
 .. code-block:: bash
 
-    echo -e 'n\np\n1\n\n+30G\nw' | fdisk /dev/sdb
-    echo -e 'n\np\n2\n\n+30G\nw' | fdisk /dev/sdb
+    echo -e 'n\np\n1\n\n+100G\nw' | fdisk /dev/sdb
+    echo -e 'n\np\n2\n\n+1000G\nw' | fdisk /dev/sdb
 
 
 
@@ -50,7 +50,6 @@ cinder 块存储
 .. code-block:: bash
 
     mkfs.ext4 /dev/sdb1
-    mkfs.ext4 /dev/sdb2
 
     mkdir -p /data
 
