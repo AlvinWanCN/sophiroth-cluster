@@ -68,6 +68,8 @@ memcached启动和设置
 .. code-block:: bash
 
     cp /etc/sysconfig/memcached{,.bak}
+    #设置地址为0.0.0.0
+    sed -i '/OPTIONS/c OPTIONS="-l 0.0.0.0"' /etc/sysconfig/memcachedmem
     systemctl enable memcached.service
     systemctl start memcached.service
     netstat -antp|grep 11211
@@ -784,7 +786,7 @@ Neutron 备份配置
     sed -i 's#UTC#Asia/Shanghai#g' $Setfiles
     sed -i 's#%s:5000/v2.0#%s:5000/v3#' $Setfiles
 
-    sed -i '/ULTIDOMAIN_SUPPORT/cOPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True' $Setfiles
+ sed -i '/MULTIDOMAIN_SUPPORT/cOPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False' $Setfiles
     sed -i "s@^#OPENSTACK_KEYSTONE_DEFAULT@OPENSTACK_KEYSTONE_DEFAULT@" $Setfiles
 
 

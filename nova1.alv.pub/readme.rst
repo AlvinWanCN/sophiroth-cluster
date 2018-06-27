@@ -96,8 +96,8 @@ nova配置
     password = placement
 
     [libvirt]
-    virt_type = '$Kvm'
-
+    #virt_type = '$Kvm'
+    virt_type = qemu
     [filter_scheduler]
     scheduler_default_filters=AllHostsFilter
 
