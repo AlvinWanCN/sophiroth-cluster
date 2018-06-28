@@ -34,7 +34,7 @@ cinder 块存储
 .. code-block:: bash
 
     echo -e 'n\np\n1\n\n+100G\nw' | fdisk /dev/sdb
-    echo -e 'n\np\n2\n\n+1000G\nw' | fdisk /dev/sdb
+    echo -e 'n\np\n2\n\n+100G\nw' | fdisk /dev/sdb
 
 
 
