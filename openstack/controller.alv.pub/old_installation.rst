@@ -18,8 +18,42 @@ url: https://www.cnblogs.com/elvi/p/7613861.html
 
     curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
 
+创建相应的数据库
+``````````````````````
 
+.. code-block:: mysql
 
+    create database keystone;
+    grant all privileges on keystone.* to 'keystone'@'localhost' identified by 'keystone';
+    grant all privileges on keystone.* to 'keystone'@'%' identified by 'keystone';
+    create database glance;
+    grant all privileges on glance.* to 'glance'@'localhost' identified by 'glance';
+    grant all privileges on glance.* to 'glance'@'%' identified by 'glance';
+
+    create database nova;
+    grant all privileges on nova.* to 'nova'@'localhost' identified by 'nova';
+    grant all privileges on nova.* to 'nova'@'%' identified by 'nova';
+    create database nova_api;
+    grant all privileges on nova_api.* to 'nova'@'localhost' identified by 'nova';
+    grant all privileges on nova_api.* to 'nova'@'%' identified by 'nova';
+    create database nova_cell0;
+    grant all privileges on nova_cell0.* to 'nova'@'localhost' identified by 'nova';
+    grant all privileges on nova_cell0.* to 'nova'@'%' identified by 'nova';
+
+    create database neutron;
+    grant all privileges on neutron.* to 'neutron'@'localhost' identified by 'neutron';
+    grant all privileges on neutron.* to 'neutron'@'%' identified by 'neutron';
+
+    create database cinder;
+    grant all privileges on cinder.* to 'cinder'@'localhost' identified by 'cinder';
+    grant all privileges on cinder.* to 'cinder'@'%' identified by 'cinder';
+
+    flush privileges;
+    select user,host from mysql.user;
+    show databases;
+
+Keystone安装配置
+`````````````````````````
 
 安装keystone
 -------------------

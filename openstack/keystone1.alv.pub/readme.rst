@@ -1,5 +1,11 @@
+
+keystone.alv.pub
+########################
+
+.. contents::
+
 添加openstack的仓库
-```````````````````````
+-------------------
 .. code-block:: bash
 
     curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
