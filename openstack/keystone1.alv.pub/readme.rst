@@ -39,7 +39,7 @@ Keystone 配置
     provider = fernet
     driver = memcache
     [memcache]
-    servers = controller.alv.pub:11211
+    servers =  memcached.alv.pub:11211
     ">/etc/keystone/keystone.conf
 
 
@@ -73,9 +73,9 @@ Keystone 配置
 .. code-block:: bash
 
     keystone-manage bootstrap --bootstrap-password admin \
-      --bootstrap-admin-url http://controller.alv.pub:35357/v3/ \
-      --bootstrap-internal-url http://controller.alv.pub:5000/v3/ \
-      --bootstrap-public-url http://controller.alv.pub:5000/v3/ \
+      --bootstrap-admin-url http://keystone1.alv.pub:35357/v3/ \
+      --bootstrap-internal-url http://keystone1.alv.pub:5000/v3/ \
+      --bootstrap-public-url http://keystone1.alv.pub:5000/v3/ \
       --bootstrap-region-id RegionOne
 
 
@@ -85,7 +85,7 @@ apache配置
 .. code-block:: bash
 
     cp /etc/httpd/conf/httpd.conf{,.bak}
-    echo "ServerName controller.alv.pub">>/etc/httpd/conf/httpd.conf
+    echo "ServerName keystone1.alv.pub">>/etc/httpd/conf/httpd.conf
     ln -s /usr/share/keystone/wsgi-keystone.conf /etc/httpd/conf.d/
 
 Apache HTTP 启动并设置开机自启动
