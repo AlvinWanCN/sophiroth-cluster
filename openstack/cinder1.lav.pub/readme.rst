@@ -151,8 +151,8 @@ NFS
     connection = mysql+pymysql://cinder:cinder@maxscale.alv.pub:4006/cinder
 
     [keystone_authtoken]
-    auth_uri = http://controller.alv.pub:5000
-    auth_url = http://controller.alv.pub:35357
+    auth_uri = http://keystone1.alv.pub:5000
+    auth_url = http://keystone1.alv.pub:35357
     memcached_servers = controller.alv.pub:11211
     auth_type = password
     project_domain_name = default
