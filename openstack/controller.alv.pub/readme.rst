@@ -529,7 +529,7 @@ Neutron 备份配置
     #egrep -v '#|^$' /etc/openstack-dashboard/local_settings #显示默认配置
     Setfiles=/etc/openstack-dashboard/local_settings
     sed -i 's#_member_#user#g' $Setfiles
-    sed -i 's#OPENSTACK_HOST = "127.0.0.1"#OPENSTACK_HOST = "controller.alv.pub"#' $Setfiles
+    sed -i 's#OPENSTACK_HOST = "127.0.0.1"#OPENSTACK_HOST = "keystone1.alv.pub"#' $Setfiles
     ##允许所有主机访问#
     sed -i "/ALLOWED_HOSTS/cALLOWED_HOSTS = ['*', ]" $Setfiles
     #去掉memcached注释#
