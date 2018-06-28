@@ -27,7 +27,7 @@ openstack3 A 192.168.127.73
 keystone1 A 192.168.127.74
 keystone2 A 192.168.127.75
 rabbitmq1 A 192.168.127.76
-glance A 192.168.127.77
+glance1 A 192.168.127.77
 neutron A 192.168.127.78
 nova1    A 192.168.127.79
 nova2 A 192.168.127.80
