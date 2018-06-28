@@ -95,9 +95,9 @@ Keystone 配置
 .. code-block:: bash
 
     keystone-manage bootstrap --bootstrap-password admin \
-      --bootstrap-admin-url http://controller.alv.pub:35357/v3/ \
-      --bootstrap-internal-url http://controller.alv.pub:5000/v3/ \
-      --bootstrap-public-url http://controller.alv.pub:5000/v3/ \
+      --bootstrap-admin-url http://keystone1.alv.pub:35357/v3/ \
+      --bootstrap-internal-url http://keystone1.alv.pub:5000/v3/ \
+      --bootstrap-public-url http://keystone1.alv.pub:5000/v3/ \
       --bootstrap-region-id RegionOne
 
 
@@ -132,7 +132,7 @@ Apache HTTP 启动并设置开机自启动
     export OS_PROJECT_NAME=admin
     export OS_USERNAME=admin
     export OS_PASSWORD=admin
-    export OS_AUTH_URL=http://controller.alv.pub:35357/v3
+    export OS_AUTH_URL=http://keystone1.alv.pub:35357/v3
     export OS_IDENTITY_API_VERSION=3
     export OS_IMAGE_API_VERSION=2
     ">./admin-openstack.sh
@@ -185,7 +185,7 @@ demo环境脚本
     export OS_PROJECT_NAME=demo
     export OS_USERNAME=demo
     export OS_PASSWORD=demo
-    export OS_AUTH_URL=http://controller.alv.pub:5000/v3
+    export OS_AUTH_URL=http://keystone1.alv.pub:5000/v3
     export OS_IDENTITY_API_VERSION=3
     export OS_IMAGE_API_VERSION=2
     ">./demo-openstack.sh
@@ -249,8 +249,8 @@ Install Glance
     [database]
     connection = mysql+pymysql://glance:glance@maxscale.alv.pub:4006/glance
     [keystone_authtoken]
-    auth_uri = http://controller.alv.pub:5000/v3
-    auth_url = http://controller.alv.pub:35357/v3
+    auth_uri = http://keystone1.alv.pub:5000/v3
+    auth_url = http://keystone1.alv.pub:35357/v3
     memcached_servers = controller.alv.pub:11211
     auth_type = password
     project_domain_name = default
@@ -272,8 +272,8 @@ Install Glance
     [database]
     connection = mysql+pymysql://glance:glance@maxscale.alv.pub:4006/glance
     [keystone_authtoken]
-    auth_uri = http://controller.alv.pub:5000/v3
-    auth_url = http://controller.alv.pub:35357/v3
+    auth_uri = http://keystone1.alv.pub:5000/v3
+    auth_url = http://keystone1.alv.pub:35357/v3
     memcached_servers = controller.alv.pub:11211
     auth_type = password
     project_domain_name = default
@@ -397,8 +397,8 @@ nova控制节点配置
     [api]
     auth_strategy = keystone
     [keystone_authtoken]
-    auth_uri = http://controller.alv.pub:5000
-    auth_url = http://controller.alv.pub:35357
+    auth_uri = http://keystone1.alv.pub:5000
+    auth_url = http://keystone1.alv.pub:35357
     memcached_servers = controller.alv.pub:11211
     auth_type = password
     project_domain_name = default
@@ -422,7 +422,7 @@ nova控制节点配置
     project_name = service
     auth_type = password
     user_domain_name = Default
-    auth_url = http://controller.alv.pub:35357/v3
+    auth_url = http://keystone1.alv.pub:35357/v3
     username = placement
     password = placement
 
@@ -568,7 +568,7 @@ Neutron 备份配置
     #
     [neutron]
     url = http://controller.alv.pub:9696
-    auth_url = http://controller.alv.pub:35357
+    auth_url = http://keystone1.alv.pub:35357
     auth_type = password
     project_domain_name = default
     user_domain_name = default
@@ -638,8 +638,8 @@ Neutron 备份配置
     notify_nova_on_port_data_changes = true
 
     [keystone_authtoken]
-    auth_uri = http://controller.alv.pub:5000
-    auth_url = http://controller.alv.pub:35357
+    auth_uri = http://keystone1.alv.pub:5000
+    auth_url = http://keystone1.alv.pub:35357
     memcached_servers = controller.alv.pub:11211
     auth_type = password
     project_domain_name = default
@@ -649,7 +649,7 @@ Neutron 备份配置
     password = neutron
 
     [nova]
-    auth_url = http://controller.alv.pub:35357
+    auth_url = http://keystone1.alv.pub:35357
     auth_type = password
     project_domain_id = default
     user_domain_id = default
@@ -845,8 +845,8 @@ keystone创建cinder用户、服务、API
     connection = mysql+pymysql://cinder:cinder@maxscale.alv.pub:4006/cinder
 
     [keystone_authtoken]
-    auth_uri = http://controller.alv.pub:5000
-    auth_url = http://controller.alv.pub:35357
+    auth_uri = http://keystone1.alv.pub:5000
+    auth_url = http://keystone1.alv.pub:35357
     memcached_servers = controller.alv.pub:11211
     auth_type = password
     project_domain_name = default
