@@ -7,6 +7,14 @@ glance1.alv.pub
 Install Glance
 ----------------------------------------------
 
+
+添加openstack的仓库
+-------------------
+.. code-block:: bash
+
+    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
+
+
 .. code-block:: bash
 
     sed -i 's/\$contentdir/centos-7/' /etc/yum.repos.d/CentOS-QEMU-EV.repo
