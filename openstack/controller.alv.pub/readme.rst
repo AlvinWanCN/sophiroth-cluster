@@ -116,9 +116,9 @@ demo环境脚本
 
     source ./admin-openstack.sh || { echo "加载前面设置的admin-openstack.sh环境变量脚本";exit; }
     openstack service create --name glance --description "OpenStack Image" image
-    openstack endpoint create --region RegionOne image public http://controller.alv.pub:9292
-    openstack endpoint create --region RegionOne image internal http://controller.alv.pub:9292
-    openstack endpoint create --region RegionOne image admin http://controller.alv.pub:9292
+    openstack endpoint create --region RegionOne image public http://glance1.alv.pub:9292
+    openstack endpoint create --region RegionOne image internal http://glance1.alv.pub:9292
+    openstack endpoint create --region RegionOne image admin http://glance1.alv.pub:9292
 
 
 Install Glance
@@ -314,7 +314,7 @@ nova控制节点配置
     vncserver_listen = $my_ip
     vncserver_proxyclient_address = $my_ip
     [glance]
-    api_servers = http://controller.alv.pub:9292
+    api_servers = http://glance1.alv.pub:9292
     [oslo_concurrency]
     lock_path = /var/lib/nova/tmp
 
@@ -740,7 +740,7 @@ keystone创建cinder用户、服务、API
     auth_strategy = keystone
     log_dir = /var/log/cinder
     state_path = /var/lib/cinder
-    glance_api_servers = http://controller.alv.pub:9292
+    glance_api_servers = http://glance1.alv.pub:9292
     transport_url = rabbit://openstack:openstack@rabbitmq1.alv.pub
 
     [database]
