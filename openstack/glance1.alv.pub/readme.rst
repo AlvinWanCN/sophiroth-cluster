@@ -34,7 +34,7 @@ Install Glance
 
 .. code-block:: bash
 
-    Imgdir=/XLH_DATE/images
+    Imgdir=/data/images
     mkdir -p $Imgdir
     chown glance:nobody $Imgdir
     echo "镜像目录： $Imgdir"
