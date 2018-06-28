@@ -153,7 +153,7 @@ Install Glance
     [keystone_authtoken]
     auth_uri = http://keystone1.alv.pub:5000/v3
     auth_url = http://keystone1.alv.pub:35357/v3
-    memcached_servers = controller.alv.pub:11211
+    memcached_servers = memcached.alv.pub:11211
     auth_type = password
     project_domain_name = default
     user_domain_name = default
@@ -176,7 +176,7 @@ Install Glance
     [keystone_authtoken]
     auth_uri = http://keystone1.alv.pub:5000/v3
     auth_url = http://keystone1.alv.pub:35357/v3
-    memcached_servers = controller.alv.pub:11211
+    memcached_servers = memcached.alv.pub:11211
     auth_type = password
     project_domain_name = default
     user_domain_name = default
@@ -301,7 +301,7 @@ nova控制节点配置
     [keystone_authtoken]
     auth_uri = http://keystone1.alv.pub:5000
     auth_url = http://keystone1.alv.pub:35357
-    memcached_servers = controller.alv.pub:11211
+    memcached_servers = memcached.alv.pub:11211
     auth_type = password
     project_domain_name = default
     user_domain_name = default
@@ -542,7 +542,7 @@ Neutron 备份配置
     [keystone_authtoken]
     auth_uri = http://keystone1.alv.pub:5000
     auth_url = http://keystone1.alv.pub:35357
-    memcached_servers = controller.alv.pub:11211
+    memcached_servers = memcached.alv.pub:11211
     auth_type = password
     project_domain_name = default
     user_domain_name = default
@@ -749,7 +749,7 @@ keystone创建cinder用户、服务、API
     [keystone_authtoken]
     auth_uri = http://keystone1.alv.pub:5000
     auth_url = http://keystone1.alv.pub:35357
-    memcached_servers = controller.alv.pub:11211
+    memcached_servers = memcached.alv.pub:11211
     auth_type = password
     project_domain_name = default
     user_domain_name = default
