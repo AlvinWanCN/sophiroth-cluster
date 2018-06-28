@@ -19,18 +19,6 @@ keystone.alv.pub
     yum install -y openstack-keystone httpd mod_wsgi memcached python-memcached
     yum install apr apr-util -y
 
-memcached启动和设置
------------------------
-.. code-block:: bash
-
-    cp /etc/sysconfig/memcached{,.bak}
-    #设置地址为0.0.0.0
-    sed -i '/OPTIONS/c OPTIONS="-l 0.0.0.0"' /etc/sysconfig/memcachedmem
-    systemctl enable memcached.service
-    systemctl start memcached.service
-    netstat -antp|grep 11211
-
-
 
 Keystone 配置
 -----------------------
