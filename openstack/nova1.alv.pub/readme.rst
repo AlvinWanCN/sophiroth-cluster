@@ -23,7 +23,7 @@ Install nova
 
 .. code-block:: bash
 
-    Vdir=/XLH_Data/nova
+    Vdir=/data/nova
     VHD=$Vdir/instances
     mkdir -p $VHD
     chown -R nova:nova $Vdir
