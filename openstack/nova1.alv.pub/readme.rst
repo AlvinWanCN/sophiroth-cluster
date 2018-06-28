@@ -232,13 +232,14 @@ openstack客户端查看
 .. code-block:: bash
 
     [root@controller ~]# openstack network agent list
-    +--------------------------------------+--------------------+---------------------------+-------------------+-------+-------+---------------------------+
-    | ID                                   | Agent Type         | Host                      | Availability Zone | Alive | State | Binary                    |
-    +--------------------------------------+--------------------+---------------------------+-------------------+-------+-------+---------------------------+
-    | 000092fa-717c-4d69-98f2-52619289c1e8 | Linux bridge agent | controller.alv.pub        | None              | :-)   | UP    | neutron-linuxbridge-agent |
-    | 32507b66-6ca8-45d5-8896-e788de059545 | Metadata agent     | controller.alv.pub        | None              | :-)   | UP    | neutron-metadata-agent    |
-    | ceb24b93-e0fc-44ed-9bd1-ac0ec98b958f | L3 agent           | controller.alv.pub        | nova              | :-)   | UP    | neutron-l3-agent          |
-    | cec418ec-dd71-4489-b19f-43d9f180c4c1 | Linux bridge agent | neutron-computer1.alv.pub | None              | :-)   | UP    | neutron-linuxbridge-agent |
-    | e963fc2e-90f9-476e-a891-77bfa847fc7e | DHCP agent         | controller.alv.pub        | nova              | :-)   | UP    | neutron-dhcp-agent        |
-    +--------------------------------------+--------------------+---------------------------+-------------------+-------+-------+---------------------------+
+    +--------------------------------------+--------------------+--------------------+-------------------+-------+-------+---------------------------+
+    | ID                                   | Agent Type         | Host               | Availability Zone | Alive | State | Binary                    |
+    +--------------------------------------+--------------------+--------------------+-------------------+-------+-------+---------------------------+
+    | 13decfcc-b7a7-45d0-b30d-6f523cc48b7b | Metadata agent     | controller.alv.pub | None              | :-)   | UP    | neutron-metadata-agent    |
+    | 1e7d7a40-5cf4-4726-89e0-4fb5396e60a4 | L3 agent           | controller.alv.pub | nova              | :-)   | UP    | neutron-l3-agent          |
+    | c637716f-d4af-4275-9333-44525b768afa | Linux bridge agent | controller.alv.pub | None              | :-)   | UP    | neutron-linuxbridge-agent |
+    | ede9bef5-4f52-4231-9f74-242f0f50e65b | DHCP agent         | controller.alv.pub | nova              | :-)   | UP    | neutron-dhcp-agent        |
+    | f851d1dc-9af8-40ea-b495-54dd343d1d9b | Linux bridge agent | nova1.alv.pub      | None              | :-)   | UP    | neutron-linuxbridge-agent |
+    +--------------------------------------+--------------------+--------------------+-------------------+-------+-------+---------------------------+
+
 
