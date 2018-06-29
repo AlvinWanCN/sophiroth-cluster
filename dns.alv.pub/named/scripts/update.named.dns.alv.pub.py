@@ -5,4 +5,4 @@ url='https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/dns.a
 file='/var/named/alv.pub.zone'
 serviceName='named'
 os.system('curl -fsSL %s > %s'%(url,file))
-os.system('systemctl restart %s'%serviceName)
+os.system('systemctl reload %s'%serviceName)
