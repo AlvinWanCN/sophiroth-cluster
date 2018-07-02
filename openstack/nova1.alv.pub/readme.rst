@@ -191,15 +191,13 @@ Configuration
 
     #systemctl restart openstack-nova-api.service
 
-.. code-block:: bash
-
 
 .. code-block:: bash
 
     cp /etc/neutron/plugins/ml2/linuxbridge_agent.ini{,bak}
 
 
- #ens32是网卡名
+#ens32是网卡名
 
 .. code-block:: bash
 
