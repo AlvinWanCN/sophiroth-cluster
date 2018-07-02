@@ -201,17 +201,17 @@ Configuration
 
 .. code-block:: bash
 
-    echo '
-    [linux_bridge]
-    physical_interface_mappings = provider:ens32
-    [securitygroup]
-    enable_security_group = true
-    firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
-    [vxlan]
-    enable_vxlan = false
-    # local_ip = 10.2.1.21
-    # l2_population = true
-    #'>/etc/neutron/plugins/ml2/linuxbridge_agent.ini
+echo '
+[linux_bridge]
+physical_interface_mappings = provider:ens32
+[securitygroup]
+enable_security_group = true
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+[vxlan]
+enable_vxlan = false
+# local_ip = 10.2.1.21
+# l2_population = true
+#'>/etc/neutron/plugins/ml2/linuxbridge_agent.ini
 
 
  #重启相关服务
