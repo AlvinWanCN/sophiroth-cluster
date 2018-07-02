@@ -214,7 +214,7 @@ ens32是网卡名
     #'>/etc/neutron/plugins/ml2/linuxbridge_agent.ini
 
 
- #重启相关服务
+重启相关服务
 
 .. code-block:: bash
 
