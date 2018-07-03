@@ -1,4 +1,5 @@
 #coding:utf-8
 import subprocess,os
-os.chdir('/opt/SophirothPXE')
+dir='/opt/SophirothPXE'
+os.chdir(dir)
 subprocess.call('ls',shell=True)
