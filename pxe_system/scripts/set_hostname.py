@@ -28,13 +28,13 @@ hostDict['nova2']=makeAlvHost('nova2','80')
 hostDict['nova3']=makeAlvHost('nova3','81')
 hostDict['ceph1']=makeAlvHost('ceph1','82')
 hostDict['cinder1']=makeAlvHost('cinder1','83')
-hostDict['cinder-control1']=makeAlvHost('cinder-control1','84')
+hostDict['ceph2']=makeAlvHost('ceph2','84')
 hostDict['nexus']=makeAlvHost('nexus','85')
 hostDict['redis']=makeAlvHost('redis','86')
 hostDict['memcached']=makeAlvHost('memcached','87')
 hostDict['controller']=makeAlvHost('controller','88')
 hostDict['elk']=makeAlvHost('elk','89')
-
+hostDict['ceph3']=makeAlvHost('ceph3','90')
 
 
 ipstr=os.popen('ip a s ens32|grep global').read() #获取关于ip信息的字符串
