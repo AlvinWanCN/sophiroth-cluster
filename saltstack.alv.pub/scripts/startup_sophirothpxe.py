@@ -4,10 +4,11 @@ import subprocess,os
 user='alvin'
 maindir='/opt/'
 project='SophirothPXE'
-workdirk=maindir+project
 port=8001
 logdir='/var/log/sophirothpxe/'
 logfile=logdir+'sophiroth.log'
+
+workdirk=maindir+project
 
 os.chdir(workdirk)
 if os.path.exists(logdir):
