@@ -4,7 +4,7 @@ saltstack server
 .. code-block:: bash
 
 
-costom init start
+Custom startup on boot.
 ``````````````````````````
 
 .. code-block:: bash
