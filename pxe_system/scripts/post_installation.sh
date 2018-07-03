@@ -18,6 +18,4 @@ echo "Welcome to Sophiroth Compute System" > /etc/motd #为服务器添加欢迎
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/pxe_system/scripts/salt-minion_auto_install.py)" ##安装salt-minion，配置连接salt-mast
 sleep 11 #停11秒钟，给salt-master时间。
 curl http://saltstack.alv.pub:8001/cgi-bin/accep_salt-minion.py?pw=sophiroth #访问salt-master api,触发salt-master接受salt-minion的加入请求。
-
-
-python -c "$(https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/optimize_system.py)" #简单的系统优化
+curl -s https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/optimize_system.py|python #简单的系统优化
