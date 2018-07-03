@@ -1,6 +1,7 @@
 #coding:utf-8
 import subprocess,os
 
+user='alvin'
 maindir='/opt/'
 project='SophirothPXE'
 workdirk=maindir+project
@@ -9,5 +10,10 @@ logdir='/var/log/sophirothpxe/'
 logfile=logdir+'sophiroth.log'
 
 os.chdir(workdirk)
-subprocess.call('mkdir -p %s'%logdir,shell=True)
+if os.path.exists(logdir):
+    pass
+else:
+    subprocess.call('sudo mkdir -p %s'%logdir, shell=True)
+    subprocess.call('sudo chown %s %s'%(user,logdir))
+
 subprocess.call('nohup /usr/bin/python3 -m http.server --cgi %s & >>%s &'%(port,logfile),shell=True)
