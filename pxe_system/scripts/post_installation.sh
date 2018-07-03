@@ -7,7 +7,7 @@ bash -c "$(curl -fsSL https://github.com/AlvinWanCN/scripts/raw/master/common_to
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/joinNatashaLDAP.py)" #加入到我的ldap
 sed -i 's/%wheel.*/%wheel  ALL=(ALL) NOPASSWD:  ALL/' /etc/sudoers #设置wheel组nopasswd，便于ansible的操作。
 grep /sophiroth/alvin/scripts/welcome.py /etc/profile || echo "/sophiroth/alvin/scripts/welcome.py" >> /etc/profile # 添加登录时执行的脚本。脚本网络地址：https://github.com/AlvinWanCN/scripts/raw/master/python/sophiroth.welcome.py
-echo "0 */2 * * * /usr/sbin/ntpdate ntpdate cn.pool.ntp.org >/dev/null" >> /var/spool/cron/root
+echo "0 */2 * * * /usr/sbin/ntpdate cn.pool.ntp.org >/dev/null" >> /var/spool/cron/root
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/$(hostname)/scripts/initial.$(hostname).py)" #每台服务器执行自己相应的配置脚本
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/zabbix.alv.pub/zabbix/scripts/installZabbixAgent.py)" #安装zabbix agent并配置。
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/pxe_system/scripts/setStaticIP.py)" #根据获取到的动态IP地址设置静态IP，脱离DHCP服务器。
