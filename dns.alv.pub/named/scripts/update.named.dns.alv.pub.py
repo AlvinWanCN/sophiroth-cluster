@@ -6,4 +6,4 @@ file='/var/named/alv.pub.zone'
 serviceName='named'
 os.system('curl -fsSL %s > %s'%(url,file))
 time.sleep(3)
-os.system('systemctl reload %s'%serviceName)
+os.system('systemctl restart %s'%serviceName)
