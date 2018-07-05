@@ -51,7 +51,7 @@ User              ceph
 添加ceph的yum 仓库
 
 
-curl -s https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/ceph.repo > /etc/yum.repos.d/ceph.repo
+curl -s https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/ceph.repo > /etc/yum.repos.d/ceph.repo
 
 
 
@@ -163,4 +163,33 @@ sudo chown ceph /var/local/osd1
 #ceph health    #等 peering 完成后，集群应该达到 active + clean 状态。
 
 
+2  在客服端上使用ceph存储空间：
 
+准备client-node
+通过admin-node节点执行命令：
+ceph-deploy  install  client-node
+注：本次实验client节点和管理节点都在一台服务器上，所以前面已经安装了ceph，
+ceph-deploy admin   client-node  ---推送配置和keying到客户端
+
+创建块设备
+    sudo  rbd create foo --size 10000   --块设备大小
+将ceph提供的块设备映射到client-node
+    sudo rbd map foo --pool rbd
+
+格式化设备
+sudo mkfs.xfs  /dev/rbd0
+挂载
+sudo mount  /dev/rbd0 /mnt/cephdir/
+常用命令：
+rbd ls  //查看本机的rbd设备
+rbd info foo  //查看模块rbd设备的相关信息
+rbd showmapped  //查看rbd设备映射信息
+ceph health  //ceph健康状态
+ceph status  //ceph当前全部状态
+ceph -w //实时监控ceph状态及变化
+ceph osd dump //所有osd详细状态
+ceph osd tree  //osd所在位置，及状态
+ceph quorum_status //mon优先级状态
+ceph mon dump  //mon节点状态
+ceph mds dump  //mds详细状态
+ceph --admin-daemon /var/run/ceph/ceph-osd.0.asok config show  //在osd上查看详细的配置信息

@@ -17,7 +17,7 @@ SaltStack命令大全 ：https://blog.csdn.net/bbwangj/article/details/78023354
 
 ###  Install epel repository
 ```bash
-# curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/Centos7-extras.repo > /etc//yum.repos.d/Centos7-extras.repo
+# curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/Centos7-extras.repo > /etc//yum.repos.d/Centos7-extras.repo
 # yum install epel-release -y
 ```
 
