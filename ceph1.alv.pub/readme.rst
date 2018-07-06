@@ -22,23 +22,21 @@ ssh-copy-id ceph@ceph3
 
 在管理节点ceph1 上修改~/.ssh/config文件(若没有则创建)增加一下内容：
 
+.. code-block:: bash
+
+echo '
 Host    ceph1
-
 Hostname  ceph1.alv.pub
-
 User              ceph
-
 Host    ceph2
-
 Hostname  ceph2.alv.pub
-
 User              ceph
-
 Host    ceph3
-
 Hostname  ceph3.alv.pub
-
 User              ceph
+' > ~/.ssh/config
+
+chmod 600 ~/.ssh/config
 
 在各节点上安装ntp（防止时钟偏移导致故障）、openssh
 
@@ -52,7 +50,7 @@ User              ceph
 
 
 curl -s https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/ceph.repo > /etc/yum.repos.d/ceph.repo
-
+curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
 
 
 在管理节点nod1上进行安装准备(使用ceph用户）
