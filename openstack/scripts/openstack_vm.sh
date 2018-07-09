@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-hostname|grep novalocal && hostnamectl set-hostname `hostname|sed 's/.novalocal//'|sed 's/^.*/&.alv.pub/'`
+hostname|grep novalocal && hostnamectl set-hostname `hostname|sed 's/.novalocal//'`
 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/disableSeAndFir.sh)" #自定义脚本的方式关闭防火墙
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/pullLocalYum.py)" #添加本地yum仓库
