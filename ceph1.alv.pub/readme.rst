@@ -100,7 +100,7 @@ osd pool default size = 2
 //如果你有多个网卡，可以把 public network 写入 Ceph 配置文件的 [global] 段下
 
 #public network = {ip-address}/{netmask}
-
+public network = 192.168.127.0/24
 
 
 //安装ceph
@@ -161,16 +161,17 @@ sudo chown ceph /var/local/osd1
 #ceph health    #等 peering 完成后，集群应该达到 active + clean 状态。
 
 
-2  在客服端上使用ceph存储空间：
+2  在客户端上使用ceph存储空间：
 
 准备client-node
+（client-node是主机名）
 通过admin-node节点执行命令：
 ceph-deploy  install  client-node
 注：本次实验client节点和管理节点都在一台服务器上，所以前面已经安装了ceph，
 ceph-deploy admin   client-node  ---推送配置和keying到客户端
 
 创建块设备
-    sudo  rbd create foo --size 10000   --块设备大小
+    sudo  rbd create foo --image-format 1 --size 5G   --块设备大小
 将ceph提供的块设备映射到client-node
     sudo rbd map foo --pool rbd
 
