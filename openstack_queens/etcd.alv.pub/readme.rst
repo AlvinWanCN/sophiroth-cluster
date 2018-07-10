@@ -7,7 +7,7 @@ Install and configure components
 ``````````````````````
 
 1. Installa the package:
-----------------------------
+
 
 .. code-block:: bash
 
