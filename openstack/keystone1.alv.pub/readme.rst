@@ -7,8 +7,10 @@ keystone.alv.pub
 添加openstack的仓库
 -------------------
 .. code-block:: bash
-
-    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
+    mv /etc/yum.repos.d/* /tmp/
+    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/centos7.dc.alv.pub.repo > /etc/yum.repos.d/centos7.dc.alv.pub.repo
+    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/epel.dc.alv.pub.repo > /etc/yum.repos.d/epel.dc.alv.pub.repo
+    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/queens.repo > /etc/yum.repos.d/queens.repo
 
 
 安装keystone
