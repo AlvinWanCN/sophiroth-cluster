@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-hostname|grep novalocal && hostnamectl set-hostname `hostname|sed 's/.novalocal//'`
-
+hostname|grep novalocal && hostnamectl set-hostname `hostname|sed 's/.novalocal//'` #设置主机名，如果又novalocal则去掉。
+\cp  /usr/share/zoneinfo/Asia/Shanghai /etc/localtime #设置时区为上海
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/disableSeAndFir.sh)" #自定义脚本的方式关闭防火墙
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/pullLocalYum.py)" #添加本地yum仓库
 bash -c "$(curl -fsSL https://github.com/AlvinWanCN/scripts/raw/master/common_tools/sshslowly.sh)" ##关闭SSH的UseDNS
