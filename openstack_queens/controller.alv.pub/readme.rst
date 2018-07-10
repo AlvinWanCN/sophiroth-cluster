@@ -105,9 +105,6 @@ demo环境脚本
     openstack token issue
 
 
-安装配置glance
-``````````````````````````
-
 
 
 创建Glance数据库、用户、认证，前面已设置
