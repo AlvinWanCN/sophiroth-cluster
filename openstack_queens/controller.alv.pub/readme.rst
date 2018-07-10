@@ -16,6 +16,9 @@ url: https://www.cnblogs.com/elvi/p/7613861.html
 ```````````````````````
 .. code-block:: bash
 
+    mv /etc/yum.repos.d/* /tmp/
+    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/centos7.dc.alv.pub.repo > /etc/yum.repos.d/centos7.dc.alv.pub.repo
+    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/epel.dc.alv.pub.repo > /etc/yum.repos.d/epel.dc.alv.pub.repo
     curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/queens.repo > /etc/yum.repos.d/queens.repo
 
 
