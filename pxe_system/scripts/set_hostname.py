@@ -35,7 +35,8 @@ hostDict['memcached']=makeAlvHost('memcached','87')
 hostDict['controller']=makeAlvHost('controller','88')
 hostDict['elk']=makeAlvHost('elk','89')
 hostDict['ceph3']=makeAlvHost('ceph3','90')
-
+hostDict['ceph4']=makeAlvHost('ceph4','91')
+hostDict['etcd']=makeAlvHost('etcd','92')
 
 ipstr=os.popen('ip a s ens32|grep global').read() #获取关于ip信息的字符串
 
