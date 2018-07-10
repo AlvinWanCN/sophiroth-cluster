@@ -6,7 +6,7 @@ etcd server
 Install and configure components
 ``````````````````````
 
-1. Installa the package:
+#. Installa the package:
 
 
 .. code-block:: bash
@@ -15,6 +15,10 @@ Install and configure components
 
 #. Edit the /etc/etcd/etcd.conf file and set the ETCD_INITIAL_CLUSTER, ETCD_INITIAL_ADVERTISE_PEER_URLS, ETCD_ADVERTISE_CLIENT_URLS, ETCD_LISTEN_CLIENT_URLS to the management IP address of the controller node to enable access by other nodes via the management network:
 
+#. asdad
+
+#. bbb
+#. ccc
 .. code-block:: bash
 
     #[Member]
