@@ -98,3 +98,69 @@ Apache HTTP 启动并设置开机自启动
     systemctl enable httpd.service
     systemctl restart httpd.service
     netstat -antp|egrep ':5000|:35357|:80'
+
+
+然后去openstack客户端做操作
+
+echo "
+export OS_PROJECT_DOMAIN_NAME=default
+export OS_USER_DOMAIN_NAME=default
+export OS_PROJECT_NAME=admin
+export OS_USERNAME=admin
+export OS_PASSWORD=admin
+export OS_AUTH_URL=http://keystone1.alv.pub:35357/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+">./admin-openstack.sh
+```
+
+### 测试脚本是否生效
+
+```
+source ./admin-openstack.sh
+openstack token issue
+```
+
+### 创建service项目,创建glance,nova,neutron用户，并授权
+
+```
+openstack project create --domain default --description "Service Project" service
+openstack user create --domain default --password=glance glance
+openstack role add --project service --user glance admin
+openstack user create --domain default --password=nova nova
+openstack role add --project service --user nova admin
+openstack user create --domain default --password=neutron neutron
+openstack role add --project service --user neutron admin
+```
+
+### 创建demo项目(普通用户密码及角色)
+
+```
+openstack project create --domain default --description "Demo Project" demo
+openstack user create --domain default --password=demo demo
+openstack role create user
+openstack role add --project demo --user demo user
+```
+
+### demo环境脚本
+
+```
+echo "
+export OS_PROJECT_DOMAIN_NAME=default
+export OS_USER_DOMAIN_NAME=default
+export OS_PROJECT_NAME=demo
+export OS_USERNAME=demo
+export OS_PASSWORD=demo
+export OS_AUTH_URL=http://keystone1.alv.pub:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+">./demo-openstack.sh
+```
+
+### 测试脚本是否生效
+```
+source ./demo-openstack.sh
+yum install python-openstackclient openstack-selinux python2-PyMySQL -y #OpenStack客户端
+openstack token issue
+openstack token issue
+```

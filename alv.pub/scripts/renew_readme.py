@@ -64,13 +64,13 @@ template = """
 .. |weather| replace:: %s
 .. |temperature| replace:: %s°~%s°
 .. |city| replace:: Shanghai 
-.. |range of activity| replace:: NULL
+.. |range of activity| replace:: Home
 
-.. |time for get up| replace:: NULL
-.. |Time for reach the company| replace:: NULL
-.. |breakfast| replace:: NULL
-.. |lunch| replace:: NULL
-.. |supper| replace:: NULL
+.. |time for get up| replace:: 
+.. |Time for reach the company| replace:: 
+.. |breakfast| replace:: 
+.. |lunch| replace:: 
+.. |supper| replace:: 
 .. contents:: 
 
 Environment
@@ -99,6 +99,7 @@ English study
 -------------------
 在百词斩学习40个单词
 
+Technology study
 
 Today's Log
 ````````````````
