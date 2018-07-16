@@ -29,25 +29,13 @@ ceph osd pool create images 128
 ceph osd pool create vms 128
 
 #ssh免密验证
-curl http://elven.vip/ks/sh/sshkey.me.sh >sshkey.me.sh
-#认证用户及密码#
-echo "
-USER=root
-PASS=123321
-">my.sh.conf
-#hosts设置
-echo "
-#openstack
-192.168.58.17   controller
-192.168.58.16   compute01
-192.168.58.14   storage1
-">>/etc/hosts
-#ssh批量认证#
-sh ./sshkey.me.sh controller compute01 storage1
+配置ceph管理端到ceph客户端的免密认证
 
 #推送ceph配置到client
 cd /etc/ceph/
-ceph-deploy config push controller compute01 storage1
+ceph-deploy config push nova1 glance1 cinder1
+
+#nova1 glance cinder1 分别是我的三类服务缩在的主机名，域名，解析到ip
 
 ###########################
 
@@ -69,6 +57,7 @@ ceph auth get-or-create client.glance >/etc/ceph/ceph.client.glance.keyring
 #glance
 Node=glance1.alv.pub
 scp /etc/ceph/ceph.client.glance.keyring $Node:/etc/ceph/
+scp /etc/ceph/ceph.conf $Node:/etc/ceph/
 ssh $Node sudo chown glance:glance /etc/ceph/ceph.client.glance.keyring
 
 #nova compute
@@ -76,11 +65,13 @@ Node=nova1.alv.pub
 scp /etc/ceph/ceph.client.cinder.keyring $Node:/etc/ceph/
 ssh $Node sudo chown nova:nova /etc/ceph/ceph.client.cinder.keyring
 scp /etc/ceph/ceph.client.glance.keyring $Node:/etc/ceph/
+scp /etc/ceph/ceph.conf $Node:/etc/ceph/
 ssh $Node sudo chown nova:nova /etc/ceph/ceph.client.glance.keyring
 
 #cinder storage
 Node=cinder1.alv.pub
 scp /etc/ceph/ceph.client.cinder.keyring $Node:/etc/ceph/
+scp /etc/ceph/ceph.conf $Node:/etc/ceph/
 ssh $Node sudo chown cinder:cinder /etc/ceph/ceph.client.cinder.keyring
 
 ###########################
