@@ -33,7 +33,7 @@ ceph osd pool create vms 128
 
 #推送ceph配置到client
 cd /etc/ceph/
-ceph-deploy config push nova1 glance1 cinder1
+ceph-deploy config push nova1 glance1 cinder1  #推送了配置之后，后面的scp ceph.conf就可以省略。
 
 #nova1 glance cinder1 分别是我的三类服务缩在的主机名，域名，解析到ip
 
