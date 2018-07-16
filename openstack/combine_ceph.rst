@@ -57,7 +57,7 @@ ceph auth get-or-create client.glance mon 'allow r' osd 'allow class-read object
 ceph auth get-or-create client.cinder-backup mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=backups'
 
 #查询用户，写入文件
-ceph auth get-key client.cinder >/etc/ceph/ceph.client.cinder.keyring
+ceph auth get-or-create client.cinder >/etc/ceph/ceph.client.cinder.keyring
 ceph auth get-or-create client.glance >/etc/ceph/ceph.client.glance.keyring
 # scp /etc/ceph/ceph.client.cinder.keyring $Node:/etc/ceph/
 # scp /etc/ceph/ceph.client.glance.keyring $Node:/etc/ceph/
