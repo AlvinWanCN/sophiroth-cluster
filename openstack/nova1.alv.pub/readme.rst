@@ -11,6 +11,7 @@ Install nova
 
 .. code-block:: bash
 
+    python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/pullLocalYum.py)" #add local basic repository
     curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
     yum install -y openstack-nova-compute
     yum install -y python-openstackclient openstack-selinux
