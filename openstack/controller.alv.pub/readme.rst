@@ -339,6 +339,7 @@ Neutron 备份配置
     cp /etc/neutron/metadata_agent.ini{,.bak}
     cp /etc/neutron/l3_agent.ini{,.bak}
 
+配置
 
 .. code-block:: bash
 
