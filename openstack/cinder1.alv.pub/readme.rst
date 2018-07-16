@@ -110,6 +110,7 @@ cinder 块存储
 `````````````````````
 
 .. code-block:: bash
+
     yum clean all
     yum install -y openstack-cinder targetcli python-keystone lvm2
     cp /etc/cinder/cinder.conf{,.bak}
