@@ -101,6 +101,7 @@ images默认/var/lib/glance/images/
 
 镜像测试,下载有时很慢
 ----------------------------------------------
+这些操作在openstack客户端做，这里我们在controller上做。
 
 .. code-block:: bash
 
