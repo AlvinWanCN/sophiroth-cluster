@@ -32,7 +32,7 @@ Install Glance
     cp /etc/glance/glance-registry.conf{,.bak}
 
 
- images默认/var/lib/glance/images/
+images默认/var/lib/glance/images/
 
 .. code-block:: bash
 
