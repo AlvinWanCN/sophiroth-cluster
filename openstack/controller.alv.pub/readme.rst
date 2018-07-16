@@ -538,8 +538,7 @@ openstack 客户端执行
     sed -in '160,164s/.*/#&/' $Setfiles
     sed -i 's#UTC#Asia/Shanghai#g' $Setfiles
     sed -i 's#%s:5000/v2.0#%s:5000/v3#' $Setfiles
-
- sed -i '/MULTIDOMAIN_SUPPORT/cOPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False' $Setfiles
+    sed -i '/MULTIDOMAIN_SUPPORT/cOPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False' $Setfiles
     sed -i "s@^#OPENSTACK_KEYSTONE_DEFAULT@OPENSTACK_KEYSTONE_DEFAULT@" $Setfiles
 
 
