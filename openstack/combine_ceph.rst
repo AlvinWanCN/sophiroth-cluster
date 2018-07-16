@@ -67,19 +67,19 @@ ceph auth get-or-create client.glance >/etc/ceph/ceph.client.glance.keyring
 #(nova,cinder都使用client.cinder)
 
 #glance
-Node=controller
+Node=glance1.alv.pub
 scp /etc/ceph/ceph.client.glance.keyring $Node:/etc/ceph/
 ssh $Node sudo chown glance:glance /etc/ceph/ceph.client.glance.keyring
 
 #nova compute
-Node=compute01
+Node=nova1.alv.pub
 scp /etc/ceph/ceph.client.cinder.keyring $Node:/etc/ceph/
 ssh $Node sudo chown nova:nova /etc/ceph/ceph.client.cinder.keyring
 scp /etc/ceph/ceph.client.glance.keyring $Node:/etc/ceph/
 ssh $Node sudo chown nova:nova /etc/ceph/ceph.client.glance.keyring
 
 #cinder storage
-Node=storage1
+Node=cinder1.alv.pub
 scp /etc/ceph/ceph.client.cinder.keyring $Node:/etc/ceph/
 ssh $Node sudo chown cinder:cinder /etc/ceph/ceph.client.cinder.keyring
 
