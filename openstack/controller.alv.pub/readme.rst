@@ -127,7 +127,7 @@ demo环境脚本
 nova控制节点
 `````````````````
 
- 创建Nova数据库、用户、认证，
+创建Nova数据库、用户、认证，
 
 
 .. code-block:: bash
@@ -139,7 +139,7 @@ nova控制节点
     openstack endpoint create --region RegionOne compute admin http://controller.alv.pub:8774/v2.1
 
 
- 创建placement用户、服务、API
+创建placement用户、服务、API
 
 .. code-block:: bash
 
@@ -252,7 +252,7 @@ nova控制节点配置
     su -s /bin/sh -c "nova-manage db sync" nova
 
 
- 检测数据
+检测数据
 
 .. code-block:: bash
 
