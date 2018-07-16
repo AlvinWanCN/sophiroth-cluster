@@ -384,7 +384,7 @@ Neutron 备份配置
     # network_vlan_ranges = provider:3001:4000
     #'>/etc/neutron/plugins/ml2/ml2_conf.ini
 
-# bond0是网卡名
+# ens32是网卡名
 
 .. code-block:: bash
 
