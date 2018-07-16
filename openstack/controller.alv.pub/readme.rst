@@ -498,7 +498,7 @@ Neutron 备份配置
     echo "查看网络,正常是：控制节点3个ID"
 
 
- openstack 客户端执行
+openstack 客户端执行
 
 .. code-block:: bash
 
