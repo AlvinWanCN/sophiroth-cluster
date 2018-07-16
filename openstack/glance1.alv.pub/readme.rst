@@ -14,11 +14,12 @@ Install Glance
 
     python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/pullLocalYum.py)" #add local basic repository
     curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/tech-center/master/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
+    yum clean all
+    yum repolist
 
 
 .. code-block:: bash
 
-    sed -i 's/\$contentdir/centos-7/' /etc/yum.repos.d/CentOS-QEMU-EV.repo
     yum install openstack-glance python-glance python-memcached -y
 
 
