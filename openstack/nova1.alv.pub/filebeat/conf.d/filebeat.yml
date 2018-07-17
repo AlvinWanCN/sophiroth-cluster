@@ -4,6 +4,7 @@ filebeat.inputs:
   paths:
     - /var/log/nova/nova-compute.log
     - /var/log/neutron/linuxbridge-agent.log
+    - /var/log/libvirt/qemu/*
   multiline.pattern:  '^\t|Exception|more|^$|^Caused|Error|^[[:space:]]org|ERROR|WARNING'
   multiline.negate: false
   multiline.match: after
