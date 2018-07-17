@@ -16,7 +16,7 @@ Configure filbeat
 
 .. code-block:: bash
 
-    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/controller.alv.pub/filebeat/conf.d/filebeat.yml > /etc/filebeat/filebeat.yml
+    curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/openstack/controller.alv.pub/filebeat/conf.d/filebeat.yml > /etc/filebeat/filebeat.yml
 
 Startup filebeat
 
