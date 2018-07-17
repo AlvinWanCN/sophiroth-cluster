@@ -20,3 +20,4 @@ python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-c
 sleep 11 #停11秒钟，给salt-master时间。
 curl http://saltstack.alv.pub:8001/cgi-bin/accep_salt-minion.py?pw=sophiroth #访问salt-master api,触发salt-master接受salt-minion的加入请求。
 curl -s https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/optimize_system.py|python #简单的系统优化
+curl "http://saltstack.alv.pub:8001/cgi-bin/set_dns.py?hostname=`hostname -s`&ip=`ip a s|grep global|awk -F "/" '{print $1}'|awk '{print $NF}'|grep 192`&password=sophiroth"
