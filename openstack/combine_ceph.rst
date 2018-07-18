@@ -137,8 +137,9 @@ sed -i 's/^virt_type/#&/'  /etc/nova/nova.conf
 #使用ceph存储
 echo '
 [libvirt]
-virt_type = qemu
-
+#virt_type = qemu
+virt_type = kvm
+hw_machine_type = x86_64=pc-i440fx-rhel7.2.0
 images_type = rbd
 images_rbd_pool = vms
 images_rbd_ceph_conf = /etc/ceph/ceph.conf
