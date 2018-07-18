@@ -97,9 +97,10 @@ Today's plan
 
 English study
 -------------------
-在百词斩学习40个单词
+learn five word in Baicizhan
 
 Technology study
+--------------------
 
 Today's Log
 ````````````````
