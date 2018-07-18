@@ -17,10 +17,11 @@ add user and grant sudo
 需要用拥有sudo权限的非root用户执行，因为如果是root用户执行的，则实际cgi user会变成nobody。
 
 所以这里我们创建sophiroth-pxe用户，并授予sudo权限。
+
 .. code-block:: bash
 
-useradd sophiroth-pxe -s /sbin/nologin
-echo "sophiroth-pxe ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/sophiroth-pxe
+    useradd sophiroth-pxe -s /sbin/nologin
+    echo "sophiroth-pxe ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/sophiroth-pxe
 
 add configuration file for start sophroth-pxe
 ``````````````````````````````````````````````````````
