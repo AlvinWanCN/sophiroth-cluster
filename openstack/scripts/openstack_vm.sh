@@ -17,7 +17,7 @@ systemctl disable postfix ## disable postfix
 echo "Welcome to Sophiroth Compute System" > /etc/motd #为服务器添加欢迎信息。
 #python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/pxe_system/scripts/resetAnsibleFingerprint.py)" #访问ansible api,修改本服务器的指纹。
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/sophiroth-cluster/master/pxe_system/scripts/salt-minion_auto_install.py)" ##安装salt-minion，配置连接salt-mast
-sleep 11 #停11秒钟，给salt-master时间。
+sleep 20 #停11秒钟，给salt-master时间。
 curl http://saltstack.alv.pub:8001/cgi-bin/accep_salt-minion.py?pw=sophiroth #访问salt-master api,触发salt-master接受salt-minion的加入请求。
 curl -s https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/optimize_system.py|python #简单的系统优化
 curl "http://saltstack.alv.pub:8001/cgi-bin/set_dns.py?hostname=`hostname -s`&ip=`ip a s|grep global|awk -F "/" '{print $1}'|awk '{print $NF}'|grep 192`&password=sophiroth"
