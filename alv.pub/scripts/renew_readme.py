@@ -97,7 +97,7 @@ Today's plan
 
 English study
 -------------------
-learn five word in Baicizhan
+learn a hundred words in Baicizhan
 
 Technology study
 --------------------
