@@ -19,7 +19,7 @@
 VPN_IPSEC_PSK=your_ipsec_pre_shared_key
 VPN_USER=your_vpn_username
 VPN_PASSWORD=your_vpn_password
-#docker run \
+# docker run \
     --name ipsec-vpn-server \
     --env-file ./vpn.env \
     --restart=always \

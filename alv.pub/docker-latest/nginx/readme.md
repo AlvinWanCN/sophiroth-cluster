@@ -15,6 +15,7 @@ config  logs  www
  -v `pwd`/logs:/var/log/nginx \
  -v /etc/localtime:/etc/localtime \
  --name nginx \
+ --privileged=true \
  --restart=always \
  nginx
 ```
