@@ -8,23 +8,25 @@ netFile='/etc/sysconfig/network-scripts/ifcfg-%s'%NICname
 if len(NICname) < 3:
     exit(1)
 #将dhcp改成static
-subprocess.call("sed -i 's/BOOTPROTO=.*/BOOTPROTO=static/' %s "%netFile,shell=True)
+#subprocess.call("sed -i 's/BOOTPROTO=.*/BOOTPROTO=static/' %s "%netFile,shell=True)
 
-ipdict={}
-ipdict['IPADDR']=ip
-ipdict['NETMASK']='255.255.255.0'
-ipdict['GATEWAY']='192.168.127.254'
-ipdict['DNS1']='192.168.127.3'
-ipdict['DNS2']='114.114.114.114'
-ipdict['DOMAIN']='"alv.pub shenmin.com"'
+# ipdict={}
+# ipdict['IPADDR']=ip
+# ipdict['NETMASK']='255.255.255.0'
+# ipdict['GATEWAY']='192.168.127.254'
+# ipdict['DNS1']='192.168.127.3'
+# ipdict['DNS2']='114.114.114.114'
+# ipdict['DOMAIN']='"alv.pub shenmin.com"'
 
-def changeIP(key):
-    if subprocess.call('grep %s %s'%(key,netFile),shell=True) == 0:
-        subprocess.call("sed -i 's/%s=.*/%s=%s/' %s"%(key,key,ipdict[key],netFile),shell=True)
-    else:
-        subprocess.call('echo "%s=%s" >> %s'%(key,ipdict[key],netFile),shell=True)
+subprocess.call('nmcli connection modify %s ipv4.address "%s/24" ipv4.gateway 192.168.127.254 ipv4.dns "192.168.127.3 114.114.114.114" ipv4.method manual ipv4.dns-search "alv.pub shenmin.com" '%(NICname,ip),shell=True)
+subprocess.call('nmcli connection up %s'%NICname,shell=True)
+# def changeIP(key):
+#     if subprocess.call('grep %s %s'%(key,netFile),shell=True) == 0:
+#         subprocess.call("sed -i 's/%s=.*/%s=%s/' %s"%(key,key,ipdict[key],netFile),shell=True)
+#     else:
+#         subprocess.call('echo "%s=%s" >> %s'%(key,ipdict[key],netFile),shell=True)
+#
+# for i in ipdict.keys():
+#     changeIP(i)
 
-for i in ipdict.keys():
-    changeIP(i)
-
-subprocess.call('systemctl restart network',shell=True)
+# subprocess.call('systemctl restart network',shell=True)
