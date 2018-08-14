@@ -2,6 +2,7 @@
 dns server
 ##########
 
+.. toctree::
+    :maxdepth: 2
 
-dns server
----------------
+    named/readme
