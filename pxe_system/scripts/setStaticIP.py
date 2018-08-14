@@ -9,7 +9,7 @@ if len(NICname) < 3:
     exit(1)
 #将dhcp改成static
 #subprocess.call("sed -i 's/BOOTPROTO=.*/BOOTPROTO=static/' %s "%netFile,shell=True)
-
+q
 # ipdict={}
 # ipdict['IPADDR']=ip
 # ipdict['NETMASK']='255.255.255.0'
