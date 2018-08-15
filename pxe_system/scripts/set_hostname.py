@@ -38,6 +38,10 @@ hostDict['ceph3']=makeAlvHost('ceph3','90')
 hostDict['ceph4']=makeAlvHost('ceph4','91')
 hostDict['etcd']=makeAlvHost('etcd','92')
 hostDict['poppy']=makeAlvHost('poppy','93')
+hostDict['k8s1']=makeAlvHost('k8s1','94')
+hostDict['k8s2']=makeAlvHost('k8s2','95')
+hostDict['k8s3']=makeAlvHost('k8s3','96')
+
 
 ipstr=os.popen('ip a s ens32|grep global').read() #获取关于ip信息的字符串
 

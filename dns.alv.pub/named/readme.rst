@@ -45,3 +45,18 @@ dns服务是使用的udp协议53号端口，一个客户端就可以通过该端
     $ sudo firewall-cmd --add-service=dns --permanent
     $ sudo firewall-cmd --reload
 
+
+
+配置详细内容
+================
+
+- /var/named/alv.pub.zone的内容
+
+.. literalinclude:: ./conf.d/alv.pub.zone
+    :language: zone
+    :linenos:
+    :lines: 1-
+
+
+
+
