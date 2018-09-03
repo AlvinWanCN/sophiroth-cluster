@@ -10,17 +10,21 @@ shenmin.com     IN SOA  shenmin.com. root.shenmin.com.zone. (
             NS  shenmin.com.
             A   47.75.67.142
 $ORIGIN shenmin.com.
-bi          A   192.168.1.218
-cms         A   192.168.1.219
-i           A   192.168.1.219
-jenkins         A   192.168.1.205
-nagios          A   192.168.1.208
-natasha         A   47.75.67.142
-sd          A   192.168.1.211
-svn         A   192.168.1.207
-test1           A   192.168.1.211
-test2           A   192.168.1.212
-test3           A   192.168.1.213
-test4           A   192.168.1.214
-tuleap          A   192.168.1.203
-zabbix          A   192.168.1.210
+tuleap     A       192.168.1.203
+test1   A       192.168.1.211
+test2   A       192.168.1.212
+test3   A       192.168.1.213
+test4   A       192.168.1.214
+nagios  A       192.168.1.208
+jenkins A       192.168.1.205
+zabbix  A       192.168.1.210
+svn     A       192.168.1.207
+sd      A       192.168.1.211
+bi      A       192.168.1.218
+cms     A       192.168.1.219
+i       A       192.168.1.219
+nova1   A       192.168.1.221
+k8s1    A       192.168.1.51
+registry        A       192.168.1.51
+k8s2    A       192.168.1.52
+k8s3    A       192.168.1.53
