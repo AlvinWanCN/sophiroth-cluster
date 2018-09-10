@@ -10,7 +10,7 @@ shenmin.com     IN SOA  shenmin.com. root.shenmin.com.zone. (
             NS  shenmin.com.
             A   47.75.67.142
 $ORIGIN shenmin.com.
-tuleap     A       192.168.1.203
+dns     A       192.168.1.203
 test1   A       192.168.1.211
 test2   A       192.168.1.212
 test3   A       192.168.1.213
@@ -41,4 +41,5 @@ k8s     A 192.168.1.221
 eureka A 192.168.1.51
 k8s12   A 192.168.1.51
 k8s12   A   192.168.1.52
+
 
