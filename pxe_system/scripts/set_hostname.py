@@ -5,6 +5,8 @@ import os,re
 def makeAlvHost(hostname,ip):  #定义字典模板
     return {'ip': ip, 'hostname': hostname+'.alv.pub'}
 hostDict={} #Define dict for hosts
+hostDict['dhcp']=makeAlvHost('dhcp','1') #Define host
+hostDict['dns']=makeAlvHost('dns','3') #Define host
 hostDict['zabbix']=makeAlvHost('zabbix','51') #Define host
 hostDict['db1']=makeAlvHost('db1','52')
 hostDict['db2']=makeAlvHost('db2','53')
