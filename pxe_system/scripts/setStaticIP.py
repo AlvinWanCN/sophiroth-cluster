@@ -2,9 +2,10 @@
 #_*_coding:utf-8_*_
 import subprocess
 
-ip=subprocess.check_output('ip a s|grep global|grep ens|grep 127|cut -d/ -f1|cut -dt  -f2|cut -d" " -f2',shell=True).split('\n')[0]
+#ip=subprocess.check_output('ip a s|grep global|grep ens|grep 127|cut -d/ -f1|cut -dt  -f2|cut -d" " -f2',shell=True).split('\n')[0]
+ip='192.168.127.'+subprocess.check_output("ip a s|grep link|grep 'ether 00:00:00:00'|awk '{print $2}'|awk -F ':' '{print $NF}'|head -1",shell=True).split('\n')[0]
 NICname=subprocess.check_output("ip a s|grep global|grep ens|grep 127|awk '{print $NF}'",shell=True).split('\n')[0]
-netFile='/etc/sysconfig/network-scripts/ifcfg-%s'%NICname
+#netFile='/etc/sysconfig/network-scripts/ifcfg-%s'%NICname
 if len(NICname) < 3:
     exit(1)
 #将dhcp改成static
