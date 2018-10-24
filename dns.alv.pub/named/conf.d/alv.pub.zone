@@ -58,11 +58,11 @@ x       A       192.168.1.205
 pro.esxi6 A     192.168.1.217
 erp     A       192.168.1.123
 food    A       192.168.1.219
-natasha CNAME       alv.pub
-t       CNAME       alv.pub
+natasha CNAME       alv.pub.
+t       CNAME       alv.pub.
 git     A       151.101.77.147
 openstack       A       192.168.1.222
-a       CNAME      alv.pub
+a       CNAME      alv.pub.
 diana   A       39.107.81.21
 cdn CNAME cdn.shenmintech.com.cn.
 
